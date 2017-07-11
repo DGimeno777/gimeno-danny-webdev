@@ -1,0 +1,46 @@
+body {
+    background-color: lightcoral;
+    margin: auto;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    margin: 0 auto;
+    margin-right: 1em;
+}
+
+.nav-div {
+    display: inline-block;
+    border: 1px black solid;
+    padding: 1px 3px 1px 3px;
+    margin-bottom: 5px;
+}
+
+.nav-links-div {
+    text-align: center;
+    margin: auto;
+}
+
+.title {
+    color: black;
+    text-align: center;
+}
+
+.description {
+    max-width: 50%;
+    margin: auto;
+    color: black;
+}
+
+.navigation {
+    color: black;
+    font-size: 2em;
+}
+
+

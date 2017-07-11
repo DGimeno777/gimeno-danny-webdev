@@ -1,8 +1,5 @@
-# web-dev-template
+# Danny Gimeno Personal Page and Web Dev Project
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+Hi! My name is Danny Gimeno. I'm Computer Science Major at Northeastern University in the class of 2020. This is the repo for my personal webpage, assignments, and final project made in CS4550. 
+
+Below you can find different pieces on my interests, organizations I'm part of, and projects I've worked on.
