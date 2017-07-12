@@ -1,46 +1,33 @@
-body {
-    background-color: lightcoral;
-    margin: auto;
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
+.link-btn {
+    margin-bottom: 3px;
 }
 
 li {
-    list-style-type: none;
-    display: inline;
-    margin: 0 auto;
-    margin-right: 1em;
+    padding: 3px;
 }
 
-.nav-div {
-    display: inline-block;
-    border: 1px black solid;
-    padding: 1px 3px 1px 3px;
-    margin-bottom: 5px;
+body {
+    background: url("../images/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.nav-links-div {
-    text-align: center;
-    margin: auto;
+.panel-transparent {
+    background: none;
 }
 
-.title {
-    color: black;
-    text-align: center;
+.buffer {
+    height: 340px;
 }
 
-.description {
-    max-width: 50%;
-    margin: auto;
-    color: black;
+.links-div {
+    background-color: whitesmoke;
+    border-radius: 25px;
 }
 
-.navigation {
-    color: black;
-    font-size: 2em;
+.page-font {
+    font-family: "Droid Sans", Droid, serif;
+    font-size: larger;
 }
-
-
