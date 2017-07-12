@@ -1,4 +1,4 @@
-.link-btn {
+.djg-link-btn {
     margin-bottom: 3px;
 }
 
@@ -14,20 +14,20 @@ body {
     background-size: cover;
 }
 
-.panel-transparent {
+.djg-panel-transparent {
     background: none;
 }
 
-.buffer {
+.djg-buffer {
     height: 340px;
 }
 
-.links-div {
+.djg-links-div {
     background-color: whitesmoke;
     border-radius: 25px;
 }
 
-.page-font {
+.djg-page-font {
     font-family: "Droid Sans", Droid, serif;
     font-size: larger;
 }
