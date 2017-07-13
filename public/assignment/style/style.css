@@ -1,0 +1,21 @@
+.djg-title-text {
+    font-size: 36px;
+    text-align: left;
+}
+
+.djg-col-center {
+    margin:0 auto;
+}
+
+.djg-background-color {
+    background-color: transparent;
+}
+
+.djg-standard-margin-bottom {
+    margin-bottom: 5px;
+}
+
+.djg-nav {
+    background-color: #2aabd2;
+    color: white;
+}
