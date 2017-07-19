@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="../vendor/angular/angular.js"></script>
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          rel="stylesheet"/>
-    <link href="../style/style.css"
-          rel="stylesheet">
-</head>
-<body>
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="website-list.html">
+        <a href="website-list.view.client.html">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <div class="col-md-4 hidden-xs hidden-sm">
             <span>Websites</span>
-            <a href="website-new.html">
+            <a href="website-new.view.client.html">
                 <span class="glyphicon glyphicon-plus pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
             </a>
         </div>
-        <span>New Website</span>
-        <a href="website-list.html">
+        <span>Edit Website</span>
+        <a href="website-list.view.client.html">
             <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
@@ -34,59 +19,58 @@
     <div style="margin-left: 22px;" class="col-md-4 hidden-xs hidden-sm">
         <ul class="djg-ul-standard">
             <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <a href="page-list.html">
-                    <span>Address Book App</span>
-                </a>
-                <a href="website-edit.html">
+                <span>Address Book App</span>
+                <a href="website-list.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
                 </a>
             </li>
             <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <a href="page-list.html">
-                    <span>Blogger</span>
-                </a>
-                <a href="website-edit.html">
+                <span>Blogger</span>
+                <a href="website-list.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
                 </a>
             </li>
             <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <a href="page-list.html">
-                    <span>Blogging App</span>
-                </a>
-                <a href="website-edit.html">
+                <span>Blogging App</span>
+                <a href="website-list.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
                 </a>
             </li>
             <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <a href="page-list.html">
-                    <span>Script Testing App</span>
-                </a>
-                <a href="website-edit.html">
+                <span>Script Testing App</span>
+                <a href="website-list.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
                 </a>
             </li>
         </ul>
     </div>
     <div class="djg-profile-field-title-text col-md-7 col-sm-12">
-        <label for="name">Name</label>
+        <label for="website-name">Website Name</label>
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
                placeholder="Name"
-               id="name">
-        <label for="description">Description</label>
+               value="Blogger"
+               id="website-name">
+        <label for="website-description">Website Description</label>
         <textarea class="form-control input djg-standard-margin-bottom"
                   rows="4"
+                  cols="50"
                   placeholder="Description"
-                  id="description">
-    </textarea>
+                  id="website-description">
+            Blogger Description here
+        </textarea>
+        <a class="btn btn-danger form-control"
+           role="button"
+           href="website-list.view.client.html">
+            Delete
+        </a>
     </div>
+
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="profile.html">
+        <a href="../user/profile.view.client.html">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
 </footer>
-</body>
-</html>
