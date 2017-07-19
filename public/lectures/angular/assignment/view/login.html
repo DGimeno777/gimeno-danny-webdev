@@ -1,0 +1,32 @@
+<div class="jumbotron container-fluid text-center align-middle djg-background-color">
+    <div ng-controller='loginController'>
+        <h3>{{hello}}</h3>
+        <div class="djg-title-standard djg-login-register-title-text">
+            Login
+        </div>
+        <form>
+            <!-- Username Field -->
+            <input class="form-control input djg-standard-margin-bottom"
+                   type="text"
+                   placeholder="username"
+                   ng-model="user.username">
+            <!-- Password Field -->
+            <input class="form-control input djg-standard-margin-bottom"
+                   type="password"
+                   placeholder="password"
+                   ng-model="user.password">
+            <!--  -->
+            <a class="btn btn-primary form-control djg-standard-margin-bottom"
+               role="button"
+               href="view/profile.html"
+                ng-click="login(user)">
+                Login
+            </a>
+        </form>
+        <a class="btn btn-success form-control"
+           role="button"
+           href="view/register.html">
+            Register
+        </a>
+    </div>
+</div>

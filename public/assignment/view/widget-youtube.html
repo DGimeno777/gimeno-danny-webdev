@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Page New</title>
+    <title>Widget Youtube</title>
     <script src="../vendor/angular/angular.js"></script>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -15,53 +15,61 @@
 <body>
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <span>Profile</span>
-        <a href="profile.html">
-            <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+        <a href="widget-list.html">
+            <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
+        </a>
+        <span>Widget Edit</span>
+        <a href="widget-list.html">
+            <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
 </nav>
 <div class="container djg-body-content">
     <form>
         <div class="djg-profile-field-title-text">
-            Username
+            Name
         </div>
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
-               placeholder="username">
+               placeholder="Name"
+               id="name">
         <div class="djg-profile-field-title-text">
-            Email
+            Text
         </div>
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
-               placeholder="email@email.com">
+               placeholder="Text"
+               id="text">
         <div class="djg-profile-field-title-text">
-            First Name
+            URL
         </div>
         <input class="form-control input djg-standard-margin-bottom"
-               type="text"
-               placeholder="FirstName">
+               type="url"
+               placeholder="URL"
+               id="url">
         <div class="djg-profile-field-title-text">
-            Last Name
+            Width
         </div>
         <input class="form-control input djg-standard-margin-bottom"
-               type="text"
-               placeholder="Last Name">
-        <a class="btn btn-primary form-control djg-standard-margin-bottom"
+               type="number"
+               placeholder="Width"
+               value="100"
+               max="100"
+               min="0"
+               id="number">
+        <a class="btn btn-danger form-control"
            role="button"
-           href="website-list.html">
-            Websites
+           href="widget-list.html">
+            Delete
         </a>
     </form>
-    <a class="btn btn-danger form-control"
-       role="button"
-       href="../index.html">
-        Logout
-    </a>
+
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="profile.html"><span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span></a>
+        <a href="profile.html">
+            <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
+        </a>
     </div>
 </footer>
 </body>
