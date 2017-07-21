@@ -12,13 +12,19 @@
                 templateUrl: "views/user/login.view.client.html"
             })
             .when("/login", {
-                templateUrl: "views/user/login.view.client.html"
+                templateUrl: "views/user/login.view.client.html"//,
+                //controller: "loginController",
+                //controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "views/user/register.view.client.html"
+                templateUrl: "views/user/register.view.client.html"//,
+                //controller: "registerController",
+                //controllerAs: "model"
             })
             .when("/user/:uid", {
-                templateUrl: "view/user/profile.view.client.html"
+                templateUrl: "view/user/profile.view.client.html"//,
+                //controller: "profileController",
+                //controllerAs: "model"
             })
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html"
