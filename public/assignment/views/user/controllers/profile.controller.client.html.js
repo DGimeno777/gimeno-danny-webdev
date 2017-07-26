@@ -8,7 +8,7 @@
         var userId = $routeParams["userId"];
 
         model.updateUser = updateUser;
-        model.unregister = unregister;
+        model.unregisterUser = unregisterUser;
 
         function init() {
             model.user = userService.findUserById(userId);
@@ -18,8 +18,13 @@
         function updateUser(userId, user) {
             userService.updateUser(userId, user);
         }
-        
-        function unregister() {
+
+        function unregisterUser(userId) {
+            if (!userId) {
+                model.errorMessage = "User not found";
+                return;
+            }
+            userService.unregisterUser(userId);
         }
     }
 })();

@@ -50,10 +50,16 @@
         Websites
     </a>
 
-    <a class="btn btn-danger form-control"
+    <a class="btn btn-danger form-control djg-standard-margin-bottom"
        role="button"
        href="#!/login">
         Logout
+    </a>
+    <a class="btn btn-danger form-control"
+       role="button"
+       ng-click="model.unregisterUser(model.user._id)"
+       href="#!/login">
+        Unregister
     </a>
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">

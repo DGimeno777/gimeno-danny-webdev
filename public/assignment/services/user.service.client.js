@@ -19,13 +19,21 @@
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
             "findUserById": findUserById,
             "registerUser": registerUser,
+            "unregisterUser": unregisterUser,
             "updateUser": updateUser
         };
 
         return api;
 
+        function unregisterUser(userId) {
+            for (var u in users) {
+                if (users[u]._id === userId) {
+                    users.splice(u, 1);
+                }
+            }
+        }
+
         function registerUser(user) {
-            console.log(user);
             user._id = (new Date()).getTime() + "";
             users.push(user);
             return user;
