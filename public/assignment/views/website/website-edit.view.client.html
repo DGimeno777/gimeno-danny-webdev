@@ -1,16 +1,16 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="website-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <div class="col-md-4 hidden-xs hidden-sm">
             <span>Websites</span>
-            <a href="website-new.view.client.html">
+            <a href="#!/user/{{model.userId}}/website/new">
                 <span class="glyphicon glyphicon-plus pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
             </a>
         </div>
         <span>Edit Website</span>
-        <a href="website-list.view.client.html">
+        <a ng-click="model.updateWebsite(model.websiteId, model.website)" href="#!/user/{{model.userId}}/website/{{model.websiteId}}">
             <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
@@ -18,27 +18,11 @@
 <div class="container-fluid djg-body-content">
     <div style="margin-left: 22px;" class="col-md-4 hidden-xs hidden-sm">
         <ul class="djg-ul-standard">
-            <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <span>Address Book App</span>
-                <a href="website-list.view.client.html">
-                    <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
+            <li ng-repeat="website in model.websites" class="djg-li-spacing-standard djg-glyphicon-standard-size">
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
+                    <span>{{website.name}}</span>
                 </a>
-            </li>
-            <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <span>Blogger</span>
-                <a href="website-list.view.client.html">
-                    <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                </a>
-            </li>
-            <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <span>Blogging App</span>
-                <a href="website-list.view.client.html">
-                    <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                </a>
-            </li>
-            <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-                <span>Script Testing App</span>
-                <a href="website-list.view.client.html">
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
                 </a>
             </li>
@@ -49,19 +33,22 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
                placeholder="Name"
-               value="Blogger"
+               value="{{model.website.name}}"
+               ng-model="model.website.name"
                id="website-name">
         <label for="website-description">Website Description</label>
         <textarea class="form-control input djg-standard-margin-bottom"
                   rows="4"
                   cols="50"
                   placeholder="Description"
+                  ng-model="model.website.description"
                   id="website-description">
-            Blogger Description here
+            {{model.website.description}}
         </textarea>
         <a class="btn btn-danger form-control"
            role="button"
-           href="website-list.view.client.html">
+           ng-click="model.deleteWebsite(model.websiteId)"
+           href="#!/user/{{model.userId}}/website">
             Delete
         </a>
     </div>
@@ -69,7 +56,7 @@
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>

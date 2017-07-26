@@ -1,53 +1,21 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../website/website-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <span>Pages</span>
-        <a href="page-new.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
             <span class="glyphicon glyphicon-plus pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
 </nav>
 <div class="container-fluid djg-body-content">
     <ul class="djg-ul-standard">
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../widget/widget-list.view.client.html">
-                <span>Blog Post</span>
+        <li ng-repeat="page in model.pages" class="djg-li-spacing-standard djg-glyphicon-standard-size">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                <span>{{page.name}}</span>
             </a>
-            <a href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../widget/widget-list.view.client.html">
-                <span>Blogs</span>
-            </a>
-            <a href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../widget/widget-list.view.client.html">
-                <span>Home</span>
-            </a>
-            <a href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../widget/widget-list.view.client.html">
-                <span>About</span>
-            </a>
-            <a href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../widget/widget-list.view.client.html">
-                <span>Contact</span>
-            </a>
-            <a href="page-edit.view.client.html">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                 <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
             </a>
         </li>
@@ -55,7 +23,7 @@
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>

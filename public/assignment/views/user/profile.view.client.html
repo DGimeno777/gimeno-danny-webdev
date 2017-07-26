@@ -1,55 +1,65 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
         <span>Profile</span>
-        <a href="profile.view.client.html">
+        <a href="#!/profile/{{model.user._id}}">
             <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
         </a>
     </div>
 </nav>
 <div class="container djg-body-content">
-    <form>
-        <label for="username" class="djg-profile-field-title-text">
-            Username
-        </label>
-        <input class="form-control input djg-standard-margin-bottom"
-               type="text"
-               placeholder="username"
-               id="username">
-        <label for="email" class="djg-profile-field-title-text">
-            Email
-        </label>
-        <input class="form-control input djg-standard-margin-bottom"
-               type="email"
-               placeholder="email@email.com"
-               id="email">
-        <label for="first-name" class="djg-profile-field-title-text">
-            First Name
-        </label>
-        <input class="form-control input djg-standard-margin-bottom"
-               type="text"
-               placeholder="FirstName"
-               id="first-name">
-        <label for="last-name" class="djg-profile-field-title-text">
-            Last Name
-        </label>
-        <input class="form-control input djg-standard-margin-bottom"
-               type="text"
-               placeholder="Last Name"
-               id="last-name">
-        <a class="btn btn-primary form-control djg-standard-margin-bottom"
-           role="button"
-           href="../website/website-list.view.client.html">
-            Websites
-        </a>
-    </form>
+
+    <label for="username" class="djg-profile-field-title-text">
+        Username
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="username"
+           ng-model="model.user.username"
+           name="username"
+           id="username">
+
+    <label for="email" class="djg-profile-field-title-text">
+        Email
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="email"
+           placeholder="email@email.com"
+           ng-model="model.user.email"
+           id="email">
+
+    <label for="first-name" class="djg-profile-field-title-text">
+        First Name
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="FirstName"
+           ng-model="model.user.firstName"
+           id="first-name">
+
+    <label for="last-name" class="djg-profile-field-title-text">
+        Last Name
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="Last Name"
+           ng-model="model.user.lastName"
+           id="last-name">
+    <a class="btn btn-primary form-control djg-standard-margin-bottom"
+       role="button"
+       href="#!/user/{{model.user._id}}/website">
+        Websites
+    </a>
+
     <a class="btn btn-danger form-control"
        role="button"
-       href="../../index.html">
+       href="#!/login">
         Logout
     </a>
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="profile.view.client.html"><span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span></a>
+        <a href="#!/profile/{{model.user._id}}">
+            <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
+        </a>
     </div>
 </footer>

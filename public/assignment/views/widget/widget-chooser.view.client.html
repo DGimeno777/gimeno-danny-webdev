@@ -1,6 +1,6 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <span>Choose Widget</span>
@@ -8,73 +8,10 @@
 </nav>
 <div class="container-fluid djg-body-content">
     <ul class="djg-ul-standard">
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
+        <li ng-repeat="widgetType in model.widgetTypes" class="djg-li-spacing-standard djg-glyphicon-standard-size">
             <div class="container">
-                <a href="widget-heading.view.client.html">
-                    <span>Header</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>Label</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>HTML</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>Text Input</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>Link</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>Button</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="widget-image.view.client.html">
-                    <span>Image</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="widget-youtube.view.client.html">
-                    <span>YouTube</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>Data Table</span>
-                </a>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div class="container">
-                <a href="">
-                    <span>Repeater</span>
+                <a ng-click="model.createWidget(model.newWidgetId, widgetType.toUpperCase())" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.newWidgetId}}/widget-editor">
+                    <span>{{widgetType}}</span>
                 </a>
             </div>
         </li>
@@ -82,7 +19,7 @@
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>

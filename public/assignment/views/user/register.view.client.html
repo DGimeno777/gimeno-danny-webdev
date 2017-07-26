@@ -2,25 +2,26 @@
     <div class="djg-title-standard djg-login-register-title-text">
         Register
     </div>
-    <form>
-        <input class="form-control input djg-standard-margin-bottom"
-               type="text"
-               placeholder="username">
-        <input class="form-control input djg-standard-margin-bottom"
-               type="password"
-               placeholder="password">
-        <input class="form-control input djg-standard-margin-bottom"
-               type="password"
-               placeholder="verify password">
-        <a class="btn btn-primary form-control djg-standard-margin-bottom"
-           role="button"
-           href="profile.view.client.html">
-            Register
-        </a>
-    </form>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="username"
+           ng-model="model.user.username">
+    <input class="form-control input djg-standard-margin-bottom"
+           type="password"
+           placeholder="password"
+           ng-model="model.user.password">
+    <input class="form-control input djg-standard-margin-bottom"
+           type="password"
+           ng-model="model.user.password2"
+           placeholder="verify password">
+    <a class="btn btn-primary form-control djg-standard-margin-bottom"
+       role="button"
+       ng-click="model.registerUser(model.user)">
+        Register
+    </a>
     <a class="btn btn-danger form-control"
        role="button"
-       href="../../index.html">
+       href="#!/">
         Cancel
     </a>
 </div>

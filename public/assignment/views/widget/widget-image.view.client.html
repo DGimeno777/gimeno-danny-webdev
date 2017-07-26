@@ -1,10 +1,10 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="widget-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <span>Widget Edit</span>
-        <a href="widget-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
             <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
@@ -17,6 +17,7 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
                id="name"
+               ng-model="model.widget.name"
                placeholder="Name">
         <label for="text" class="djg-profile-field-title-text">
             Text
@@ -24,6 +25,7 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
                placeholder="Text"
+               ng-model="model.widget.text"
                id="text">
         <label for="url" class="djg-profile-field-title-text">
             URL
@@ -31,6 +33,7 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="url"
                placeholder="URL"
+               ng-model="model.widget.url"
                id="url">
         <label for="width" class="djg-profile-field-title-text">
             Width
@@ -38,6 +41,7 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="number"
                placeholder="100"
+               ng-model="model.widget.width"
                min="0"
                max="100"
                id="width">
@@ -63,7 +67,7 @@
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>

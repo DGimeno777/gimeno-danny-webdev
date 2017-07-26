@@ -1,118 +1,27 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../page/page-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <span>Widgets</span>
-        <a href="widget-chooser.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
             <span class="glyphicon glyphicon-plus pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
 </nav>
 <div class="container-fluid djg-body-content">
     <ul class="djg-ul-standard">
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
+        <li ng-repeat="widget in model.widgets" class="djg-li-spacing-standard djg-glyphicon-standard-size">
             <div>
                 <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-heading.view.client.html">
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}/widget-editor">
                         <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
                     </a>
-                    <a href="widget-heading.view.client.html">
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}/widget-editor">
                         <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
                     </a>
                 </div>
-                <!-- Put Widget here -->
-                <h1>Gizmodo</h1>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div>
-                <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                </div>
-                <!-- Put Widget here -->
-                <h2>Chris Farren</h2>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div>
-                <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-image.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                    <a href="widget-image.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                </div>
-                <!-- Put Widget here -->
-                <img class="img-responsive"
-                     src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-9/17862385_1667647849917330_2434511604420608188_n.jpg?oh=fb9c41bbd08a0dee1df34e29d638c15e&oe=5A0F7219">
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div>
-                <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                </div>
-                <!-- Put Widget here -->
-                <h3>The world is a beautiful Chris Farren and I am Chris Farren.</h3>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div>
-                <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                </div>
-                <!-- Put Widget here -->
-                <h2>Pash Rash by Jeff Rosenstock</h2>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div>
-                <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-youtube.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                    <a href="widget-youtube.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                </div>
-                <!-- Put Widget here -->
-                <iframe width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/wssFJIxkedw"
-                        frameborder="0"
-                        allowfullscreen>
-                </iframe>
-            </div>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <div>
-                <div class="djg-widget-glyphicon-panel">
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                    <a href="widget-image.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-                    </a>
-                </div>
-                <!-- Put Widget here -->
-                <h3>Pash Rash is a song by Jeff Rosenstock, a great musician and band!</h3>
+                <div ng-include="model.getWidgetIncludeUrl(widget.widgetType)"></div>
             </div>
         </li>
     </ul>
@@ -122,7 +31,7 @@
 
         <span class="glyphicon glyphicon-play pull-left djg-glyphicon-left djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         <span class="glyphicon glyphicon-eye-open pull-left djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>

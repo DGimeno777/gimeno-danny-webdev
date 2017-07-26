@@ -1,10 +1,10 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="page-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <span>Pages</span>
-        <a href="page-list.view.client.html">
+        <a ng-click="model.createPage(model.websiteId, model.website)" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
             <span class="glyphicon glyphicon-ok pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
@@ -17,6 +17,7 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
                placeholder="Page Name"
+               ng-model="model.website.name"
                id="page-name">
         <label for="page-title" class="djg-profile-field-title-text">
             Title
@@ -24,12 +25,13 @@
         <input class="form-control input djg-standard-margin-bottom"
                type="text"
                placeholder="Page Title"
+               ng-model="model.website.title"
                id="page-title">
     </form>
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>

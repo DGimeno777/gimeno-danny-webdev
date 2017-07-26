@@ -1,45 +1,21 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-chevron-left pull-left djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
         <span>Websites</span>
-        <a href="website-new.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/new">
             <span class="glyphicon glyphicon-plus pull-right djg-glyphicon-header-footer-center djg-glyphicon-standard-size djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
 </nav>
 <div class="container-fluid djg-body-content">
     <ul class="djg-ul-standard">
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../page/page-list.view.client.html">
-                <span>Address Book App</span>
+        <li ng-repeat="website in model.websites" class="djg-li-spacing-standard djg-glyphicon-standard-size">
+            <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
+                <span>{{website.name}}</span>
             </a>
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../page/page-list.view.client.html">
-                <span>Blogger</span>
-            </a>
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../page/page-list.view.client.html">
-                <span>Blogging App</span>
-            </a>
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
-            </a>
-        </li>
-        <li class="djg-li-spacing-standard djg-glyphicon-standard-size">
-            <a href="../page/page-list.view.client.html">
-                <span>Script Testing App</span>
-            </a>
-            <a href="website-edit.view.client.html">
+            <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                 <span class="glyphicon glyphicon-cog pull-right djg-glyphicon-li-center"></span>
             </a>
         </li>
@@ -47,7 +23,7 @@
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <a href="../user/profile.view.client.html">
+        <a href="#!/profile/{{model.userId}}">
             <span class="glyphicon glyphicon-user pull-right djg-glyphicon-standard-size djg-glyphicon-header-footer-center djg-glyphicon-header-footer-standard"></span>
         </a>
     </div>
