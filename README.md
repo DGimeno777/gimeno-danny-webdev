@@ -7,3 +7,7 @@ In this website you can find info on my interests, the organizations I'm part of
 ## WebDev Project
 
 My semester project for webdev is a music research platform for general researchers, promoters, and agents. It will allow them to see popularity data (e.g. facebook likes) for musical artists and follow artists they are interested in or work with. You can go to it by clicking the 'Web Dev Final Project' of my homepage.
+
+### Design
+Below is the UML design of my project:
+![alt text][public\project\doc]
