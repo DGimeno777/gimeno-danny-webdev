@@ -10,4 +10,4 @@ My semester project for webdev is a music research platform for general research
 
 ### Design
 Below is the UML design of my project:
-![alt text][public\project\doc]
+![alt text][https://github.com/DGimeno777/gimeno-danny-webdev/blob/master/public/project/doc/Gimeno_Project2.png]
