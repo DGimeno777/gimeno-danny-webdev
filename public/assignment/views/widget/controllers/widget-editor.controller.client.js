@@ -16,10 +16,13 @@
         model.deleteWidget = deleteWidget;
         model.getWidgetEditorUrl = getWidgetEditorUrl;
 
-        function init() {
-            model.widget = widgetService.findWidgetById(model.widgetId);
+        widgetService
+            .findWidgetById(model.widgetId)
+            .then(setWidget);
+
+        function setWidget(widget) {
+            model.widget = widget;
         }
-        init();
 
         function updateWidget(widgetId, widget) {
             widgetService.updateWidget(widgetId, widget);

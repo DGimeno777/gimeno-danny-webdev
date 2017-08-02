@@ -15,7 +15,7 @@ module.exports = function (app) {
     app.delete("/api/page/:pageId", deletePage);
 
     function deletePage(req, res) {
-        var pageId = req.body._id;
+        var pageId = req.params.pageId;
 
         for (var p in pages) {
             if (pages[p]._id === pageId) {
@@ -29,13 +29,13 @@ module.exports = function (app) {
     }
 
     function updatePage(req, res) {
-        var pageId = req.body._id;
+        var pageId = req.params.pageId;
         var page = req.body;
 
         for (var p in pages) {
-            if (pages[p].pageId === pageId) {
+            if (pages[p]._id === pageId) {
                 pages[p] = page;
-                res.status(200);
+                res.json(pages[p]);
                 return;
             }
         }
@@ -71,11 +71,11 @@ module.exports = function (app) {
     }
 
     function findPageById(req, res) {
-        var pageId = req.body._id;
+        var pageId = req.params.pageId;
 
         for (var p in pages) {
             if (pages[p]._id === pageId) {
-                res.send(pages[p]);
+                res.json(pages[p]);
                 return;
             }
         }

@@ -11,11 +11,6 @@
         model.websiteId = $routeParams["websiteId"];
         
         model.createPage = createPage;
- 
-        function init() {
-
-        }
-        init();
         
         function createPage(websiteId, page) {
             pageService.createPage(websiteId, page);

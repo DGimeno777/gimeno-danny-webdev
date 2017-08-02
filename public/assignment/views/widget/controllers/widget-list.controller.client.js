@@ -15,10 +15,13 @@
         model.trustUrlResource = trustUrlResource;
         model.trustHtmlContent = trustHtmlContent;
 
-        function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+        widgetService
+            .findWidgetsByPageId(model.pageId)
+            .then(setWidgets);
+
+        function setWidgets(widgets) {
+            model.widgets = widgets;
         }
-        init();
 
         function getWidgetIncludeUrl(widgetType) {
             return "views/widget/widgetTypes/widget-" + widgetType + ".view.client.html";

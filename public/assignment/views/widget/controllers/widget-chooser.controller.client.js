@@ -13,11 +13,21 @@
 
         model.createWidget = createWidget;
 
-        function init() {
-            model.widgetTypes = widgetService.getWidgetTypes();
-            model.newWidgetId = widgetService.generateNewWidgetId();
+        widgetService
+            .getWidgetTypes()
+            .then(setWidgetTypes);
+
+        widgetService
+            .generateNewWidgetId()
+            .then(setNewWidgetId);
+
+        function setWidgetTypes(widgetTypes) {
+            model.widgetTypes = widgetTypes;
         }
-        init();
+
+        function setNewWidgetId(newWidgetId) {
+            model.newWidgetId = newWidgetId;
+        }
 
         function createWidget(widgetId, widgetType) {
             console.log(widgetId);

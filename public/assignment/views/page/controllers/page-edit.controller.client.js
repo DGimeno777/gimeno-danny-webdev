@@ -14,10 +14,13 @@
         model.updatePage = updatePage;
         model.deletePage = deletePage;
 
-        function init() {
-            model.page = pageService.findPageById(model.pageId);
+        pageService
+            .findPageById(model.pageId)
+            .then(setPage);
+
+        function setPage(page) {
+            model.page = page;
         }
-        init();
 
         function updatePage(pageId, page) {
             pageService.updatePage(pageId, page);
