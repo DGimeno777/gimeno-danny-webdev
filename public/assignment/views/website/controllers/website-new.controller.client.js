@@ -10,10 +10,13 @@
         model.makeWebsite = makeWebsite;
         model.userId = $routeParams["userId"];
 
-        function init() {
-            model.websites = websiteService.findWebsitesByUser(model.userId);
+        websiteService
+            .findWebsitesByUser(model.userId)
+            .then(setWebsites);
+
+        function setWebsites(websites) {
+            model.websites = websites;
         }
-        init();
         
         function makeWebsite(userId, website) {
             if (!website) {
@@ -21,7 +24,6 @@
                 return;
             }
             websiteService.createWebsite(userId, website);
-            return;
         }
     }
     

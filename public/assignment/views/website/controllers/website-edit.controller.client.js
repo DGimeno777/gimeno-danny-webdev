@@ -12,11 +12,21 @@
         model.userId = $routeParams["userId"];
         model.websiteId = $routeParams["websiteId"];
 
-        function init() {
-            model.websites = websiteService.findWebsitesByUser(model.userId);
-            model.website = websiteService.findWebsiteById(model.websiteId);
+        websiteService
+            .findWebsitesByUser(model.userId)
+            .then(setWebsites);
+
+        websiteService
+            .findWebsiteById(model.websiteId)
+            .then(setWebsite);
+
+        function setWebsite(website) {
+            model.website = website;
         }
-        init();
+
+        function setWebsites(websites) {
+            model.websites = websites;
+        }
 
         function updateWebsite(websiteId, website) {
             websiteService.updateWebsite(websiteId, website);

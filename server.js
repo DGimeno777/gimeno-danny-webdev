@@ -1,11 +1,14 @@
-var app = require('./express');
-var express = app.express;
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+module.exports = (function() {
+    var express = require('express');
+    var app = express();
+    var bodyParser = require('body-parser');
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/public'));
+    app.use(express.static(__dirname + '/public'));
 
-require("./test/app");
+    require("./assignment/app")(app);
 
-app.listen(process.env.PORT || 3000);
+    app.listen(process.env.PORT || 3000);
+
+})();

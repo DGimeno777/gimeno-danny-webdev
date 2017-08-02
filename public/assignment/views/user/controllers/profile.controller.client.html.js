@@ -10,10 +10,13 @@
         model.updateUser = updateUser;
         model.unregisterUser = unregisterUser;
 
-        function init() {
-            model.user = userService.findUserById(userId);
+        userService
+            .findUserById(userId)
+            .then(setUser);
+
+        function setUser(user) {
+            model.user = user;
         }
-        init();
         
         function updateUser(userId, user) {
             userService.updateUser(userId, user);

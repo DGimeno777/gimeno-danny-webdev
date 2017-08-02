@@ -14,14 +14,16 @@
         init();
 
         function login(user) {
-            if (!user) {
+
+            userService
+                .findUserByUsernameAndPassword(user.username, user.password)
+                .then(login, handleError);
+
+            function handleError() {
                 model.errorMessage = "User not defined";
-                return;
             }
-            user = userService.findUserByUsernameAndPassword(user.username, user.password);
-            if (user === null) {
-                model.errorMessage = "User not found";
-            } else {
+
+            function login(user) {
                 $rootScope.currentUser = user;
                 $location.url("profile/"+user._id);
             }
