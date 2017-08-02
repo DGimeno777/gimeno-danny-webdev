@@ -1,4 +1,5 @@
 (function() {
-    angular.module("WebAppMaker",["ngRoute", "WebdevDirectives"]);
+    angular
+        .module("WebAppMaker",["ngRoute"]);
 })();
 

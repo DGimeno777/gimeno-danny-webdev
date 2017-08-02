@@ -11,9 +11,7 @@ module.exports = function (app) {
 
     // http handlers
     app.post("/api/user", createUser);
-    //app.get("/api/user?username=username", findUserByUsername);
     app.get("/api/user", handleGetQuery);
-    //app.get("/api/user?username=username&password=password", findUserByCredentials);
     app.get("/api/user/:userId", findUserById);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);

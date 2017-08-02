@@ -28,7 +28,53 @@ module.exports = function (app) {
     app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
+    app.put("/api/page/:pageId/widget", updateWidgetPosition)
     app.delete("/api/widget/:widgetId", deleteWidget);
+
+    function updateWidgetPosition(req, res) {
+        var startIndex = req.query.startIndex;
+        var endIndex = req.query.endIndex;
+        var pageId = req.params.pageId;
+
+        var pageWidgets = [];
+
+        for (var w in widgets) {
+            if (widgets[w].pageId === pageId) {
+                pageWidgets.push(widgets[w]);
+            }
+        }
+
+        for (var pw in pageWidgets) {
+            for (var w in widgets) {
+                if (widgets[w]._id === pageWidgets[pw]._id) {
+                    widgets.splice(w, 1);
+                }
+                break;
+            }
+        }
+
+        var startWidget = pageWidgets[startIndex];
+
+        if (startIndex > endIndex) {
+            for (var i = startIndex; i > endIndex; i--) {
+                pageWidgets[i] = pageWidgets[i-1];
+            }
+            pageWidgets[endIndex] = startWidget;
+        }
+        else if (startIndex < endIndex) {
+            for (var i = startIndex; i < endIndex; i++) {
+                pageWidgets[i] = pageWidgets[i+1];
+            }
+            pageWidgets[endIndex] = startWidget;
+        }
+
+        for (var w in pageWidgets) {
+            console.log(pageWidgets[w]);
+            widgets.push(pageWidgets[w]);
+        }
+
+        res.sendStatus(200);
+    }
 
     function generateNewWidgetId(req, res) {
         res.json((new Date()).getTime() + "");
