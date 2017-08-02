@@ -30,15 +30,15 @@
         }
 
         function createWidget(widgetId, widgetType) {
-            console.log(widgetId);
             var newWidget = {
                 "_id": widgetId,
                 "widgetType": widgetType.toUpperCase(),
                 "pageId": model.pageId,
                 "text": ""
             };
-            console.log(newWidget.pageId);
-            widgetService.createWidgetWithGivenId(model.pageId, newWidget._id, newWidget);
+            widgetService
+                .createWidgetWithGivenId(model.pageId, newWidget._id, newWidget)
+                .then();
         }
     }
     

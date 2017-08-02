@@ -4,8 +4,8 @@
         .module("WebAppMaker")
         .factory("widgetService", widgetService);
     
-    function widgetService() {
-        var widgets = [
+    function widgetService($http) {
+        /*var widgets = [
             { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
             { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
             { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
@@ -15,7 +15,7 @@
             { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
-        ];
+        ];*/
 
         var api = {
             "createWidget": createWidget,
@@ -31,70 +31,61 @@
         return api;
 
         function generateNewWidgetId() {
-            return (new Date()).getTime() + "";
+            var url = "/api/widget/newWidgetId";
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
         }
         
         function getWidgetTypes() {
-            var widgetTypes = [
-                "Heading",
-                "Image",
-                "Html",
-                "Youtube"
-            ];
-            return widgetTypes;
+            var url = "/api/widget/widgetTypes";
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
         }
         
         function createWidget(pageId, widget) {
-            var newWidget = widget;
-            newWidget.pageId = pageId;
-            newWidget._id = (new Date()).getTime() + "";
-            widgets.push(newWidget);
+            var url = "/api/page/"+pageId+"/widget";
+            return $http.post(url, widget).then(function (res) {
+                return res.data;
+            });
         }
 
         function createWidgetWithGivenId(pageId, id, widget) {
             var newWidget = widget;
-            newWidget.pageId = pageId;
             newWidget._id = id;
-            widgets.push(newWidget);
+            var url = "/api/page/"+pageId+"/widget/"+id;
+            return $http.post(url, newWidget).then(function (res) {
+                return res.data;
+            });
         }
 
         function findWidgetsByPageId(pageId) {
-            var foundWidgets = [];
-            for (var w in widgets) {
-                if (widgets[w].pageId === pageId) {
-                    foundWidgets.push(widgets[w]);
-                }
-            }
-            return foundWidgets;
+            var url = "/api/page/"+pageId+"/widget";
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
         }
         
         function findWidgetById(widgetId) {
-            for (var w in widgets) {
-                if (widgets[w]._id === widgetId) {
-                    return widgets[w];
-                }
-            }
-            return null;
+            var url = "/api/widget/"+widgetId;
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
         }
         
         function updateWidget(widgetId, widget) {
-            for (var w in widgets) {
-                if (widgets[w]._id === widgetId) {
-                    widgets[w] = widget;
-                    return;
-                }
-            }
-            return null;
+            var url = "/api/widget/"+widgetId;
+            return $http.put(url, widget).then(function (res) {
+                return res.data;
+            });
         }
         
         function deleteWidget(widgetId) {
-            for (var w in widgets) {
-                if (widgets[w]._id === widgetId) {
-                    widgets.splice(w, 1);
-                    return;
-                }
-            }
-            return null;
+            var url = "/api/widget/"+widgetId;
+            return $http.delete(url).then(function (res) {
+                return res.data;
+            });
         }
     }
     

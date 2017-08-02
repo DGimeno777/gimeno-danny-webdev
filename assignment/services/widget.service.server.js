@@ -14,11 +14,42 @@ module.exports = function (app) {
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
 
+    var widgetTypes = [
+        "Heading",
+        "Image",
+        "Html",
+        "Youtube"
+    ];
+
     app.post("/api/page/:pageId/widget", createWidget);
+    app.post("/api/page/:pageId/widget/:widgetId", createWidgetFromId)
+    app.get("/api/widget/newWidgetId", generateNewWidgetId);
+    app.get("/api/widget/widgetTypes", getWidgetTypes);
     app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
+
+    function generateNewWidgetId(req, res) {
+        res.json((new Date()).getTime() + "");
+    }
+
+    function getWidgetTypes(req, res) {
+        res.json(widgetTypes);
+    }
+
+    function createWidgetFromId(req, res) {
+        var pageId = req.params.pageId;
+        var widgetId = req.params.widgetId;
+        var widget = req.body;
+
+        widget.pageId = pageId;
+        widget._id = widgetId;
+
+        widgets.push(widget);
+
+        res.json(widget);
+    }
 
     function createWidget(req, res) {
         var pageId = req.params.pageId;
@@ -26,10 +57,9 @@ module.exports = function (app) {
         var widget = req.body;
         widget.pageId = pageId;
         widget._id = (new Date()).getTime();
-
         widgets.push(widget);
 
-        res.sendStatus(200);
+        res.json(widget);
     }
 
     function findAllWidgetsForPage(req, res) {
