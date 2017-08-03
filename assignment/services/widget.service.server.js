@@ -109,10 +109,12 @@ module.exports = function (app) {
     }
 
     function findAllWidgetsForPage(req, res) {
+        console.log("StartFindAllWidgets: "+req.params);
         var pageId = req.params.pageId;
         var widgetsFound = [];
 
         for (var w in widgets) {
+            console.log(widgets[w]);
             if (widgets[w].pageId === pageId) {
                 widgetsFound.push(widgets[w]);
             }

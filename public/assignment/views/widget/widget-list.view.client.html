@@ -11,7 +11,7 @@
 </nav>
 <div class="container-fluid djg-body-content">
     <ul class="djg-ul-standard" id="djg-widget-ul">
-        <li ng-repeat="widget in model.widgets" class="djg-li-spacing-standard djg-glyphicon-standard-size">
+        <li ng-repeat="widget in model.widgets" id="djg-widget-li" class="djg-li-spacing-standard djg-glyphicon-standard-size">
             <div>
                 <div class="djg-widget-glyphicon-panel">
                     <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}/widget-editor">

@@ -1,36 +1,30 @@
 (function () {
     angular
-        .module("WebdevDirectives", [])
-        .directive("itemList", itemListDirective);
+        .module("WebAppMaker")
+        .directive("widgetList", widgetList);
 
-    console.log("this runs");
+    function widgetList($http) {
 
-    function itemListDirective($http) {
-
-        function linkFunction(scope, element) {
-            var widgets = element.find("#djg-widget-ul");
-
-            console.log(element);
+        function linkFunction(scope, element, attrs) {
 
             var startIndex = -1;
             var endIndex = -1;
 
-            widgets.sortable({
+            element.sortable({
+                axis: 'y',
+                handle: ".sortable-handle",
+                tolerance: 'touch',
                 start: function (event, ui) {
-                    startIndex = $(ui.item).index();
-                    console.log("start");
+                    startIndex = ui.item.index();
                 },
-
                 stop: function (event, ui) {
-                    endIndex = $(ui.item).index();
-                    console.log("stop");
-                    //$http.put("/api/widget?startIndex="+startIndex+"&stopIndex="+endIndex);
+                    endIndex = ui.item.index();
+                    $http.put("/api/page/"+scope.model.pageId+"/widget?initial="+startIndex+"&final="+endIndex);
                 }
             });
         }
 
         return {
-            templateUrl: "views/widget/widget-list.view.client.html",
             link: linkFunction
         }
     }
