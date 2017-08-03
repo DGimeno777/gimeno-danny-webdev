@@ -22,7 +22,9 @@
 
         function updateWidgetPosition(pageId, startIndex, endIndex) {
             var url = "/api/page/"+pageId+"/widget?startIndex="+startIndex+"&endIndex="+endIndex;
-            return $http.put(url);
+            return $http.put(url).then(function (res) {
+                return res.data;
+            });
         }
 
         function generateNewWidgetId() {
