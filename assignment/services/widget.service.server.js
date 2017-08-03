@@ -32,8 +32,8 @@ module.exports = function (app) {
     app.delete("/api/widget/:widgetId", deleteWidget);
 
     function updateWidgetPosition(req, res) {
-        var startIndex = req.query.startIndex;
-        var endIndex = req.query.endIndex;
+        var startIndex = parseInt(req.query.startIndex) + 0;
+        var endIndex = parseInt(req.query.endIndex) + 0;
         var pageId = req.params.pageId;
 
         var pageWidgets = [];
@@ -69,11 +69,10 @@ module.exports = function (app) {
         }
 
         for (var w in pageWidgets) {
-            console.log(pageWidgets[w]);
             widgets.push(pageWidgets[w]);
         }
 
-        res.sendStatus(200);
+        res.json("Nothing");
     }
 
     function generateNewWidgetId(req, res) {

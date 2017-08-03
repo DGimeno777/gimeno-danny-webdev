@@ -53,7 +53,8 @@
 
                 stop: function (event, ui) {
                     endIndex = $(ui.item).index();
-                    widgetService.updateWidgetPosition(model.pageId, startIndex, endIndex);
+                    widgetService
+                        .updateWidgetPosition(model.pageId, startIndex, endIndex);
                 }
             });
         }
