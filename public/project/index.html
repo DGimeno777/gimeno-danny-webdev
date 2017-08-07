@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="GimenoProject">
 <head>
     <meta charset="UTF-8">
-    <title>Project Home Page</title>
+    <title>Project</title>
+
+    <!-- Angular -->
+    <script src="../vendor/angular/angular.min.js"></script>
+    <script src="../vendor/angular/angular-route.min.js"></script>
+
+    <!-- App and Config -->
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="../vendor/jquery/jquery-ui.js"></script>
+
+    <!-- Controllers -->
+    <script src="views/general/controllers/homepage.controller.client.js"></script>
+
+    <!-- Services -->
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link href="style/style.css" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Project Home Page</h1>
+    <div ng-view></div>
 </body>
 </html>
