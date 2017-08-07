@@ -13,9 +13,7 @@ module.exports = (function() {
     app.use(express.static(__dirname + '/public'));
 
     require("./assignment/app")(app);
-    console.log("yoyoy");
     require("./project/app")(app);
-    console.log("yoyoy");
     app.listen(process.env.PORT || 3000);
 
 })();
