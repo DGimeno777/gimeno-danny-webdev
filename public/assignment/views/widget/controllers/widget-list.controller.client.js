@@ -47,6 +47,7 @@
             var endIndex = -1;
 
             widgets.sortable({
+                axis: 'y',
                 start: function (event, ui) {
                     startIndex = $(ui.item).index();
                 },

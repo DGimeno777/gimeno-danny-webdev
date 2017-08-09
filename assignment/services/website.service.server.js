@@ -50,10 +50,18 @@ module.exports = function (app) {
     function createWebsite(req, res) {
         var website = req.body;
         var userId = req.params.userId;
-        website.developerId = userId;
+
+        websiteModel
+            .createWebsite(userId, website)
+            .then(function (websiteDoc) {
+                res.json(websiteDoc);
+            }, function (err) {
+                res.statusCode(500).send(err);
+            });
+        /*website.developerId = userId;
         website._id = (new Date()).getTime() + "";
         websites.push(website);
-        res.send(website);
+        res.send(website);*/
     }
 
     function findWebsiteById(req, res) {
