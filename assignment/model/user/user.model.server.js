@@ -1,6 +1,6 @@
 module.exports = (function () {
     var mongoose = require('mongoose');
-    var userSchema = require('assignment/model/user/user.schema.server');
+    var userSchema = require('./user.schema.server');
     var userModel = mongoose.model('userModel', userSchema);
     var websiteModel = require('../website/website.model.server.js');
 
@@ -37,8 +37,7 @@ module.exports = (function () {
 
     function updateUser(userId, user) {
         return userModel
-            .update(
-                {_id: userId}, {$set: user});
+            .update({_id: userId}, {$set: user});
     }
 
     function createUser(user) {

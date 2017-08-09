@@ -1,6 +1,6 @@
 module.exports = (function () {
     var mongoose = require('mongoose');
-    var pageSchema = require('assignment/model/page/page.schema.server');
+    var pageSchema = require('./page.schema.server');
     var pageModel = mongoose.model('pageModel', pageSchema);
     var websiteModel = function () {
         return require('../website/website.model.server');
@@ -14,8 +14,8 @@ module.exports = (function () {
     pageModel.deletePage = deletePage;
 
     // Custom
-    page.addWidget = addWidget;
-    page.deleteWidget = deleteWidget;
+    pageModel.addWidget = addWidget;
+    pageModel.deleteWidget = deleteWidget;
 
     return pageModel;
 

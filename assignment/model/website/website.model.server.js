@@ -1,6 +1,6 @@
 module.exports = (function () {
     var mongoose = require('mongoose');
-    var websiteSchema = require('assignment/model/website/website.schema.server');
+    var websiteSchema = require('./website.schema.server');
     var websiteModel = mongoose.model('websiteModel', websiteSchema);
     var userModel = require('../user/user.model.server.js');
     var pageModel = require('../page/page.model.server');
