@@ -16,9 +16,7 @@ module.exports = function (app) {
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
 
-    var userDbModel = function () {
-        return require('../model/user/user.model.server');
-    };
+    var userDbModel = require('../model/user/user.model.server')();
 
     function handleGetQuery(req, res) {
         var username = req.query.username;

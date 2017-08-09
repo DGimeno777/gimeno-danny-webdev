@@ -36,7 +36,9 @@ module.exports = (function () {
     }
 
     function updateUser(userId, user) {
-        return userModel.update({_id: userId}, {$set: user});
+        return userModel
+            .update(
+                {_id: userId}, {$set: user});
     }
 
     function createUser(user) {
