@@ -10,7 +10,7 @@
     <ul class="djg-ul-standard">
         <li ng-repeat="widgetType in model.widgetTypes" class="djg-li-spacing-standard djg-glyphicon-standard-size">
             <div class="container">
-                <a ng-click="model.createWidget(model.newWidgetId, widgetType.toUpperCase())" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.newWidgetId}}/widget-editor">
+                <a ng-click="model.createWidget(model.newWidgetId, widgetType.toUpperCase()).then()">
                     <span>{{widgetType}}</span>
                 </a>
             </div>

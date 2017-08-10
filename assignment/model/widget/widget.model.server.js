@@ -2,9 +2,7 @@ module.exports = (function () {
     var mongoose = require('mongoose');
     var widgetSchema = require('./widget.schema.server');
     var widgetModel = mongoose.model('widgetModel', widgetSchema);
-    var pageModel = function () {
-        return require("../page/page.model.server");
-    }();
+    var pageModel = require("../page/page.model.server");
 
     // Req
     widgetModel.createWidget = createWidget;
@@ -37,6 +35,10 @@ module.exports = (function () {
             });
     }
 
+    function reorderWidgetsHelper(widgets, startInd, endInd) {
+
+    }
+
     function deleteWidget(pageId, widgetId) {
         return widgetModel
             .remove({_id: widgetId})
@@ -50,28 +52,23 @@ module.exports = (function () {
     }
 
     function findWidgetById(widgetId) {
-        widgetModel.findById(widgetId);
+        return widgetModel.findById(widgetId);
     }
 
     function findAllWidgetsForPage(pageId) {
-        return pageModel
-            .findPageById(pageId)
-            .then(function (page) {
-                return page.widgets.map(function(widget) {
-                    findWidgetById(widget._id);
-                });
-            });
+        return widgetModel.find({_page: pageId});
     }
 
     function createWidget(pageId, widget) {
         widget._page = pageId;
         return widgetModel
             .create(widget)
-            .then(function (widget) {
+            .then(function (widgetNew) {
+                console.log(widgetNew);
                 return pageModel
-                    .addWidget(pageId, widget._id)
+                    .addWidget(pageId, widgetNew._id)
                     .then(function () {
-                        return widget;
+                        return widgetNew;
                     });
             });
     }

@@ -109,6 +109,7 @@ module.exports = function (app) {
         widgetDbModel
             .createWidget(pageId, widget)
             .then(function (widgetNew) {
+                console.log(widget);
                 res.json(widgetNew);
             })
             .catch(function (error) {
@@ -121,11 +122,12 @@ module.exports = function (app) {
 
         var widget = req.body;
         widget.pageId = pageId;
-        widget._id = (new Date()).getTime();
+        //widget._id = (new Date()).getTime();
 
         widgetDbModel
             .createWidget(pageId, widget)
             .then(function (widgetNew) {
+                console.log(widget);
                 res.json(widgetNew)
             })
             .catch(function (error) {
@@ -159,6 +161,8 @@ module.exports = function (app) {
 
     function findWidgetById(req, res) {
         var widgetId = req.params.widgetId;
+
+        console.log(widgetId);
 
         widgetDbModel
             .findWidgetById(widgetId)

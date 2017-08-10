@@ -54,13 +54,10 @@ module.exports = (function () {
 
     function deleteWebsite(websiteId) {
         return websiteModel
-            .findOne({_id: websiteId})
+            .remove({_id: websiteId})
             .then(function (website) {
                 userModel.removeWebsiteFromUser(website._user, websiteId);
                 pageModel.deletePagesOfWebsite(websiteId);
-            })
-            .then(function () {
-                return websiteModel.remove({_id: websiteId});
             });
 
     }

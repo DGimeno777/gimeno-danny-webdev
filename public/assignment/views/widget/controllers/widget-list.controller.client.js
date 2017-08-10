@@ -20,6 +20,7 @@
             .then(setWidgets);
 
         function setWidgets(widgets) {
+            console.log(widgets);
             model.widgets = widgets;
         }
 

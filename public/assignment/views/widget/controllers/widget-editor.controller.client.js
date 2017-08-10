@@ -21,11 +21,16 @@
             .then(setWidget);
 
         function setWidget(widget) {
+            console.log(widget);
             model.widget = widget;
         }
 
         function updateWidget(widgetId, widget) {
+            if (widget.size) {
+                widget.size = parseInt(widget.size);
+            }
             widgetService.updateWidget(widgetId, widget);
+            console.log(widget);
         }
 
         function deleteWidget(widgetId) {

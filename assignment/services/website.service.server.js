@@ -18,7 +18,7 @@ module.exports = function (app) {
         { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
     ];
 
-    var websiteDbModel = require("../model/website/website.model.server")();
+    var websiteDbModel = require("../model/website/website.model.server");
 
     function deleteWebsite(req, res) {
         var websiteId = req.params.websiteId;
@@ -76,7 +76,7 @@ module.exports = function (app) {
         var userId = req.params.userId;
 
         websiteDbModel
-            .createWebsite(userId, website)
+            .createWebsiteForUser(userId, website)
             .then(function (websiteDoc) {
                 res.json(websiteDoc);
             }, function (err) {

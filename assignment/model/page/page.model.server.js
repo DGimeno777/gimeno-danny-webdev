@@ -20,11 +20,13 @@ module.exports = (function () {
     return pageModel;
 
     function deletePage(websiteId, pageId) {
+        console.log("heheh");
         return pageModel
             .remove({_id: pageId})
-            .then(function () {
+            .then(function (page) {
+                console.log("herehere");
                 return websiteModel
-                    .deletePage(websiteId, pageId);
+                    .removePageFromWebsite(websiteId, pageId);
             });
     }
 
@@ -68,7 +70,7 @@ module.exports = (function () {
             .then(function (page) {
                 page.widgets.splice(page.widgets.indexOf(widgetId), 1);
                 return page.save();
-            })
+            });
     }
 
 

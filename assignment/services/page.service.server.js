@@ -14,7 +14,7 @@ module.exports = function (app) {
     app.put("/api/page/:pageId", updatePage);
     app.delete("/api/page/:pageId", deletePage);
 
-    var pageDbModel = require("../model/page/page.model.server")();
+    var pageDbModel = require("../model/page/page.model.server");
 
     function deletePage(req, res) {
         var pageId = req.params.pageId;

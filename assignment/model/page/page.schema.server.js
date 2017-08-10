@@ -8,7 +8,7 @@ module.exports = (function () {
         description: String,
         widgets: [{type: mongoose.Schema.Types.ObjectId, ref: 'widgetModel'}],
         dateCreated: Date
-    });
+    }, {collection: "page"});
 
     return pageSchema;
 }());
