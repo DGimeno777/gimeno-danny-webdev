@@ -7,8 +7,11 @@ module.exports = function (app) {
         console.log("in1");
         var username = process.env.MLAB_USERNAME_WEBDEV; // get from environment
         var password = process.env.MLAB_PASSWORD_WEBDEV;
+        console.log("in1.1");
         connectionString = 'mongodb://' + username + ':' + password;
-        connectionString += process.env.MLAB_ACCESS_URL; // user yours
+        console.log("in1.2");
+        connectionString += process.env.MONGODB_URI; // user yours
+        console.log("in1.3");
     }
     console.log("in2");
     var mongoose = require("mongoose");
