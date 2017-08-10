@@ -10,7 +10,7 @@ module.exports = function (app) {
         console.log("in1.1");
         connectionString = 'mongodb://' + username + ':' + password;
         console.log("in1.2");
-        connectionString += process.env.MONGODB_URI; // user yours
+        connectionString = process.env.MONGODB_URI; // user yours
         console.log("in1.3");
     }
     console.log("in2");
