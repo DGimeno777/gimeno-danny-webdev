@@ -31,12 +31,51 @@ module.exports = (function () {
             .findPageById(pageId)
             .then(function (page) {
                 return pageModel
-                    .updatePage(pageId, {widgets: reorderWidgetsHelper(page.widgets, startInd, endInd)})
-            });
+                    .update({_id: pageId}, {widgets: reorderWidgetsHelper(page.widgets, pageId, startInd, endInd)});
+            })
     }
 
-    function reorderWidgetsHelper(widgets, startInd, endInd) {
+    function reorderWidgetsHelper(widgets, pageId, startIndex, endIndex) {
+        //console.log("ReorderGo!");
+        //console.log(widgets);
+        var pageWidgets = [];
 
+        for (var t in widgets) {
+            if (widgets[t]._page === pageId) {
+                pageWidgets.push(widgets[t]);
+            }
+        }
+
+        for (var pw in pageWidgets) {
+            for (var w in widgets) {
+                if (widgets[w]._id === pageWidgets[pw]._id) {
+                    widgets.splice(w, 1);
+                }
+                break;
+            }
+        }
+        var startWidget = pageWidgets[startIndex];
+
+        if (startIndex > endIndex) {
+            for (var s = startIndex; s > endIndex; s--) {
+                pageWidgets[s] = pageWidgets[s-1];
+            }
+            pageWidgets[endIndex] = startWidget;
+        }
+        else if (startIndex < endIndex) {
+            for (var i = startIndex; i < endIndex; i++) {
+                pageWidgets[i] = pageWidgets[i+1];
+            }
+            pageWidgets[endIndex] = startWidget;
+        }
+
+        for (var q in pageWidgets) {
+            widgets.push(pageWidgets[q]);
+        }
+
+        //console.log(widgets);
+
+        return widgets;
     }
 
     function deleteWidget(pageId, widgetId) {
