@@ -13,7 +13,7 @@ module.exports = (function() {
     app.use(express.static(__dirname + '/public'));
 
     require("./assignment/app")(app);
-    require("./project/app")(app);
+    require("./project/app");
     app.listen(process.env.PORT || 3000);
 
 })();
