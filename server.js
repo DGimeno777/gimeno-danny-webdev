@@ -10,10 +10,12 @@ module.exports = (function() {
     app.use(bodyParser.urlencoded({ extended: true }));
     //app.use(cookieParser());
 
-    app.use(express.static(__dirname + '/public'));
+    app
+        .use(express.static(__dirname + '/public'))
+        .use(cookieParser());
 
     require("./assignment/app")(app);
-    require("./project/app");
+    require("./project/app")(app, querystring, request);
     app.listen(process.env.PORT || 3000);
 
 })();

@@ -1,0 +1,32 @@
+<nav class="djg-header-footer-standard djg-header-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+        <span>Prototype</span>
+    </div>
+</nav>
+<div class="container container-fluid djg-body-content">
+    <div class="djg-login-register-title-text">
+        <span>Login</span>
+    </div>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           ng-model="model.user.username"
+           placeholder="username"
+           id="text">
+    <input class="form-control input djg-standard-margin-bottom"
+           type="password"
+           ng-model="model.user.username"
+           placeholder="password"
+           id="password">
+    <a class="btn btn-primary form-control djg-standard-margin-bottom"
+       ng-click="model.login(model.user)">
+        <span>Login</span>
+    </a>
+    <a class="btn btn-danger form-control djg-standard-margin-bottom"
+       href="#!">
+        <span>Cancel</span>
+    </a>
+</div>
+<footer class="djg-header-footer-standard djg-footer-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+    </div>
+</footer>

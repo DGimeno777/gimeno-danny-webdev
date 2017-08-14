@@ -1,0 +1,24 @@
+<nav class="djg-header-footer-standard djg-header-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+        <span>Bandit</span>
+        <div class="pull-right" ng-show="model.access_token">
+            <a class="btn btn-primary djg-nav-button" href="#!/login">
+                <span>Login</span>
+            </a>
+            <a class="btn btn-primary djg-nav-button" href="#!/register">
+                <span>Register</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container container-fluid djg-body-content">
+    <ul>
+        <li ng-repeat="result in model.results">
+            {{result.name}}
+        </li>
+    </ul>
+</div>
+<footer class="djg-header-footer-standard djg-footer-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+    </div>
+</footer>

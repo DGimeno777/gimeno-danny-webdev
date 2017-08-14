@@ -11,3 +11,6 @@ My semester project for webdev is a music research platform for general research
 ### Design
 Below is the UML design of my project:
 ![Project Design](/public/project/doc/Gimeno_Project2.png)
+
+### Prototype
+You can now test drive the website and spotify api when you access the final project tab!

@@ -1,10 +1,104 @@
-#login, #loggedin {
-    display: none;
+.djg-title-standard {
+    text-align: left;
+    font-family: "Droid Sans", Droid, serif;
 }
 
-.text-overflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 500px;
+.djg-login-register-title-text {
+    font-size: 3em;
+}
+
+.djg-profile-field-title-text {
+    font-size: 1.5em;
+}
+
+.djg-profile-nav-title-text {
+    font-size: 3em;
+    padding-left: .3em;
+    padding-right: .3em;
+}
+
+.djg-col-center {
+    margin:0 auto;
+}
+
+.djg-background-color {
+    background-color: transparent;
+}
+
+.djg-standard-margin-bottom {
+    margin-bottom: 5px;
+}
+
+.djg-header-footer-standard {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #2aabd2;
+    height: 60px;
+    color: white;
+}
+
+.djg-header-standard {
+    margin-bottom: 2em;
+    top: 0;
+    z-index: 3;
+}
+
+.djg-footer-standard {
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.djg-body-content {
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.djg-glyphicon-header-footer-center {
+    margin-top: .7em;
+}
+
+.djg-glyphicon-li-center {
+    padding-top: .15em;
+}
+
+.djg-glyphicon-standard-size {
+    font-size: 24px;
+}
+
+.djg-glyphicon-header-footer-standard {
+    color: white;
+}
+
+.djg-glyphicon-header-footer-standard:hover {
+    color: blue;
+}
+
+.djg-glyphicon-left {
+    margin-right: 15px;
+}
+
+.djg-ul-standard {
+    list-style: none;
+    font-size: 2em;
+    padding: 0px;
+}
+
+.djg-li-spacing-standard {
+    margin-bottom: 1em;
+}
+
+.djg-widget-glyphicon-panel {
+    position: absolute;
+    right: 0;
+    border-radius: 5px;
+    background-color:rgba(240,240,240,10);
+    margin-right: 15px;
+    padding: 0px 7px 7px 5px;
+}
+
+.djg-nav-button {
+    display: inline-block;
+    text-decoration: none;
 }
