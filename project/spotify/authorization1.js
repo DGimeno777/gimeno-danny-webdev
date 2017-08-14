@@ -2,8 +2,8 @@ module.exports = function (app, querystring, request) {
 
     var client_id = '61a95cb6a8f247eab9ad6c049092e467'; // Your client id
     var client_secret = '48409439b81b4934a91f5d9cf87a8f77'; // Your secret
-    var redirect_uri = 'http://localhost:3000/project/callback'; // Your redirect uri
-
+    //var redirect_uri = 'http://localhost:3000/project/callback'; // Your redirect uri
+    var redirect_uri = 'https://gimeno-danny-webdev.herokuapp.com/project/callback'; // Heroku Ver
     /**
      * Generates a random string containing numbers and letters
      * @param  {number} length The length of the string
