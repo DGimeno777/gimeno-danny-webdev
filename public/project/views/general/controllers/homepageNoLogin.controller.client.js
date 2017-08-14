@@ -15,7 +15,9 @@
         model.searchArtist = searchArtist;
 
         function searchArtist(artistName, accessToken, refreshToken) {
-            $location.url("profile/"+user._id);
+            $location.url("/results?artist_name="+artistName+
+                "&access_token="+accessToken+
+                "&refresh_token="+refreshToken);
         }
 
     }
