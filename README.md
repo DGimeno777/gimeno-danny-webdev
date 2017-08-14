@@ -14,3 +14,8 @@ Below is the UML design of my project:
 
 ### Prototype
 You can now test drive the website and spotify api when you access the final project tab!
+
+- One can test the user-domain relation by creating a user and adding an artist to their watch list.
+- One can test the user-user relation by creating a venue or agent user, adding a user to the artists played or claimed
+artist (respectively), and then accessing the artist profile from any other user to see what venues the artist has played
+or what agent they are currently working with (respectively).
