@@ -29,40 +29,37 @@
         </div>
     </div>
 </nav>
-<div class="container container-fluid djg-body-content">
-    <div class="djg-login-register-title-text" ng-hide="model.access_token">
-        <a href="/spotifyLogin"
-           class="btn djg-black-btn form-control">
-            Please log in with Spotify
-        </a>
+<div class="container djg-body-content">
+    <div>
+        Spotify Details
     </div>
-    <div ng-if="model.access_token">
-        <div class="djg-standard-margin-bottom">
-            <label for="artist" class="djg-profile-field-title-text">
-                Artist Search
-            </label>
-            <input class="input form-control djg-standard-margin-bottom"
-                   type="text"
-                   ng-model="model.artistName"
-                   id="artist">
-            <a class="btn djg-black-btn form-control djg-standard-margin-bottom"
-               ng-click="model.searchArtist(model.artistName)">
-                <span>Search!</span>
-            </a>
+    <div>
+        <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+            Agents
         </div>
-        <div class="djg-standard-margin-bottom">
-            <label for="agency" class="djg-profile-field-title-text">
-                Agency Search
-            </label>
-            <input class="input form-control djg-standard-margin-bottom"
-                   type="text"
-                   ng-model="model.agency"
-                   id="agency">
-            <a class="btn djg-black-btn form-control djg-standard-margin-bottom"
-               href="#!/agency">
-                <span>Search!</span>
-            </a>
-        </div>
+        <table class="table djg-result-table">
+            <!--
+            _user: {require: true, type: mongoose.Schema.Types.ObjectId, ref: "userModel"},
+            _spotifyId: {require: true, type: String},
+            name: {type: String, require: true},
+            pictureUrl: {type: String},
+            dateClaimed: {type: Date, default: Date.now()}
+            -->
+            <tr>
+                <th><!-- Photo --></th>
+                <th>Name</th>
+
+            </tr>
+            <tr ng-repeat="entry in model.agentEntries">
+                <th>
+                    <img class="djg-profile-result-image"
+                         src="{{entry.pictureUrl}}">
+                </th>
+                <th>
+                    {{entry.name}}
+                </th>
+            </tr>
+        </table>
     </div>
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">

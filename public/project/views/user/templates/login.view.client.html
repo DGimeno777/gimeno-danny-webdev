@@ -1,12 +1,17 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
-        <span>Prototype</span>
+        <span>Bandit</span>
+        <div class="pull-right">
+            <a ng-click="model.goToHomepage()">
+                <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+        </div>
     </div>
 </nav>
 <div class="container container-fluid djg-body-content">
-    <div class="djg-login-register-title-text">
+    <label for="text" class="djg-login-register-title-text">
         <span>Login</span>
-    </div>
+    </label>
     <input class="form-control input djg-standard-margin-bottom"
            type="text"
            ng-model="model.user.username"
@@ -14,16 +19,26 @@
            id="text">
     <input class="form-control input djg-standard-margin-bottom"
            type="password"
-           ng-model="model.user.username"
+           ng-model="model.user.password"
            placeholder="password"
            id="password">
-    <a class="btn btn-primary form-control djg-standard-margin-bottom"
+    <a class="btn djg-green-btn form-control djg-standard-margin-bottom"
        ng-click="model.login(model.user)">
         <span>Login</span>
     </a>
-    <a class="btn btn-danger form-control djg-standard-margin-bottom"
-       href="#!">
+    <a class="btn djg-yellow-btn form-control djg-standard-margin-bottom"
+       ng-click="model.goToRegister()">
+        <span>Register</span>
+    </a>
+    <a class="btn djg-cancel-btn form-control djg-standard-margin-bottom"
+       ng-click="model.goToHomepage()">
         <span>Cancel</span>
+    </a>
+    <a href="/auth/facebook" class="btn djg-black-btn form-control djg-standard-margin-bottom">
+        Sign in using Facebook
+    </a>
+    <a href="/auth/google" class="btn djg-black-btn form-control djg-standard-margin-bottom">
+        Sign in using Google
     </a>
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">

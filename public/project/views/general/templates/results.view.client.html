@@ -1,22 +1,111 @@
 <nav class="djg-header-footer-standard djg-header-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">
         <span>Bandit</span>
-        <div class="pull-right" ng-show="model.access_token">
-            <a class="btn btn-primary djg-nav-button" href="#!/login">
-                <span>Login</span>
-            </a>
-            <a class="btn btn-primary djg-nav-button" href="#!/register">
-                <span>Register</span>
-            </a>
+        <div class="pull-right">
+            <div ng-if="!model.userId">
+                <a ng-click="model.goToHomepage()">
+                    <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+                </a>
+                <a class="btn djg-white-btn djg-nav-button"
+                   ng-click="model.goToLogin()">
+                    <span>Login</span>
+                </a>
+                <a class="btn djg-white-btn djg-nav-button"
+                   ng-click="model.goToRegister()">
+                    <span>Register</span>
+                </a>
+            </div>
+            <div ng-if="model.userId">
+                <a ng-click="model.goToHomepage()">
+                    <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+                </a>
+                <a ng-click="model.goToProfile()">
+                    <span class="glyphicon glyphicon-user djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+                </a>
+                <a ng-click="model.logout()">
+                    <span class="glyphicon glyphicon-off djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
 <div class="container container-fluid djg-body-content">
-    <ul>
-        <li ng-repeat="result in model.results">
-            {{result.name}}
-        </li>
-    </ul>
+
+    <table class="table djg-result-table">
+        <tr>
+            <th><!-- Photo --></th>
+            <th>Artist Name</th>
+            <th>Genre</th>
+            <th>Followers</th>
+            <th ng-if="model.userId">Add to Watch List</th>
+            <th ng-if="model.user.type === 'Agent'">Claim Artist</th>
+            <th ng-if="model.user.type === 'Promoter'">Add Show</th>
+            <th ng-if="model.user.type === 'Venue'">Add Show</th>
+            <th>Artist Page</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="result in model.results">
+            <th>
+                <img class="djg-result-image"
+                     src="{{model.checkImageGiven(result.images[0].url)}}">
+            </th>
+            <th>
+                <span>{{result.name}}</span>
+            </th>
+            <th>
+                <div ng-repeat="genre in result.genres">
+                    <span>{{genre}}</span>
+                    </br>
+                </div>
+
+            </th>
+            <th>
+                <span>{{result.followers.total}}</span>
+            </th>
+            <th ng-if="model.userId">
+                <a class="btn djg-green-btn"
+                   ng-if="!model.watchlistContainsArtist(result.id)"
+                   ng-click="model.addArtistToWatchlist(result.id, result.name, result.images[0].url)">
+                    Add to Watch List
+                </a>
+                <a class="btn djg-disable-btn"
+                    ng-if="model.watchlistContainsArtist(result.id)"
+                    disabled="true">
+                    On your Watch List
+                </a>
+            </th>
+            <th ng-if="model.user.type === 'Agent'">
+                <a class="btn djg-green-btn"
+                   ng-if="!model.agentListContainsArtist(result.id)"
+                   ng-click="model.addArtistToAgentList(result.id, result.name, result.images[0].url)">
+                    Add to Agent List
+                </a>
+                <a class="btn djg-disable-btn"
+                   ng-if="model.agentListContainsArtist(result.id)"
+                   disabled="true">
+                    On your Agent List
+                </a>
+            </th>
+            <th ng-if="model.user.type === 'Promoter'">
+                <a class="btn djg-green-btn"
+                   ng-click="model.addArtistToPromoterList(result.id, result.name, result.images[0].url)">
+                    Add Artist Show
+                </a>
+            </th>
+            <th ng-if="model.user.type === 'Venue'">
+                <a class="btn djg-green-btn"
+                   ng-click="model.addArtistToPromoterList(result.id, result.name, result.images[0].url)">
+                    Add Artist Show
+                </a>
+            </th>
+            <th>
+                <a class="btn djg-black-btn"
+                    ng-click="model.goToArtistPage(result.id)">
+                  Artist Page
+                </a>
+            </th>
+        </tr>
+    </table>
 </div>
 <footer class="djg-header-footer-standard djg-footer-standard">
     <div class="djg-title-standard djg-profile-nav-title-text">

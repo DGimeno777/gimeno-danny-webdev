@@ -3,12 +3,7 @@ module.exports = function (app) {
     app.get('/login', login);
     app.get('/callback', callback);
     app.get('/refresh_token', refreshToken);
-    app.get('/getArtist', getArtist);
 
-    function getArtist(req, res) {
-        
-    }
-    
     function login(req, res) {
 
         var state = generateRandomString(16);

@@ -33,7 +33,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    background-color: #2aabd2;
+    background-color: black;
     height: 60px;
     color: white;
 }
@@ -101,4 +101,44 @@
 .djg-nav-button {
     display: inline-block;
     text-decoration: none;
+}
+
+.djg-result-table {
+    height: 2em;
+    width: 100%;
+}
+
+.djg-result-image {
+    width: 10em;
+    height: 10em;
+}
+
+.djg-profile-result-image {
+    width: 7em;
+    height: 7em;
+}
+
+.djg-black-btn {
+    background-color: black;
+    color: white;
+}
+
+.djg-green-btn {
+    background-color: green;
+    color: white;
+}
+
+.djg-cancel-btn {
+    background-color: red;
+    color: white;
+}
+
+.djg-white-btn {
+    background-color: white;
+    color: black;
+}
+
+.djg-yellow-btn {
+    background-color: orange;
+    color: white;
 }

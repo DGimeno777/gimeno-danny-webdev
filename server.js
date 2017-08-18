@@ -14,7 +14,7 @@ module.exports = (function() {
         .use(express.static(__dirname + '/public'))
         .use(cookieParser());
 
-    require("./assignment/app")(app);
+    //require("./assignment/app")(app);
     require("./project/app")(app, querystring, request);
     app.listen(process.env.PORT || 3000);
 

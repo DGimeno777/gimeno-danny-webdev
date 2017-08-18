@@ -1,6 +1,4 @@
 (function() {
-    //app.controller("loginController", loginController);
-    //app.controller("profileController", profileController);
 
     angular
         .module("GimenoProject")
@@ -11,12 +9,12 @@
         // Default route
             .when('/', {
                 templateUrl: "views/general/templates/homepage.view.client.html",
-                controller: "homepageNoLoginController",
+                controller: "homepageController",
                 controllerAs: "model"
             })
-            .when('/homepage/:uid', {
-                templateUrl: "views/user/templates/login.view.client.html",
-                controller: "homepageLoginController",
+            .when('/homepage/:userId', {
+                templateUrl: "views/general/templates/homepage.view.client.html",
+                controller: "homepageController",
                 controllerAs: "model"
             })
             .when('/login', {
@@ -29,9 +27,29 @@
                 controller: "registerController",
                 controllerAs: "model"
             })
+            .when('/profile/:userId', {
+                templateUrl: "views/user/templates/profile.view.client.html",
+                controller: "profileController",
+                controllerAs: "model"
+            })
             .when('/results', {
                 templateUrl: "views/general/templates/results.view.client.html",
                 controller: "resultsController",
+                controllerAs: "model"
+            })
+            .when('/results/:userId', {
+                templateUrl: "views/general/templates/results.view.client.html",
+                controller: "resultsController",
+                controllerAs: "model"
+            })
+            .when('/profile/artist/:artistSpotifyId', {
+                templateUrl: "views/general/templates/artist.view.client.html",
+                controller: "artistController",
+                controllerAs: "model"
+            })
+            .when('/profile/artist/:artistSpotifyId/user/:userId', {
+                templateUrl: "views/general/templates/artist.view.client.html",
+                controller: "artistController",
                 controllerAs: "model"
             })
     }

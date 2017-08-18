@@ -6,50 +6,95 @@
 
     function userService($http) {
 
+        var apiUrl = "/api/user";
+
         var api = {
-            "getArtistSpotifyFollowers": getArtistSpotifyFollowers,
-            "getArtistFacebookLikes": getArtistFacebookLikes,
-            "getArtistGoogleTrendData": getArtistGoogleTrendData,
-            "getUserByUsernameAndPassword": getUsernameByUsernameAndPassword
+            "findUserByUsername": findUserByUsername,
+            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "findUserById": findUserById,
+            "registerUser": registerUser,
+            "unregisterUser": unregisterUser,
+            "updateUser": updateUser,
+            "searchArtist": searchArtist,
+            "addArtistToWatchlist": addArtistToWatchlist,
+            "findUserWatchlist": findUserWatchlist,
+            "removeArtistFromWatchlist": removeArtistFromWatchlist,
+
         };
 
         return api;
 
-        function getUsernameByUsernameAndPassword(username, password) {
-            var url = "/api/user?username="+username+"&password="+password;
-            return $http.get(url).then(function (user) {
-                return user
+        function removeArtistFromWatchlist(userId, artistSpotifyId) {
+            var url = apiUrl+"/"+userId+"/watchlist/delete/"+artistSpotifyId;
+            return $http.delete(url).then(function (res) {
+                return res.data;
+            })
+        }
+
+        function findUserWatchlist(userId) {
+            var url = apiUrl+"/"+userId+"/watchlist";
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
+        }
+
+        function addArtistToWatchlist(userId, artistSpotifyId, artist) {
+            console.log("user.service.client");
+            var url = apiUrl+"/"+userId+"/watchlist/add/"+artistSpotifyId;
+            return $http.post(url, artist).then(function (res) {
+                return res.data;
             });
         }
 
         function searchArtist(artistName, accessToken) {
-            var url = "https://api.spotify.com/v1/search?q="+artistName;
-            /*for (var word in artistName.split(" ")) {
-                if (word !== 0) {
-                    url += "+";
-                }
-                url += artistName[word];
-            }*/
-            url += "&type=artist";
+            var url = "https://api.spotify.com/v1/search?q="+artistName+"&type=artist";
             return $http.get(url, {
                 headers: {
                     'Authorization': 'Bearer ' + accessToken
                 }
-            }).then(function (data) {
-                return data;
+            }).then(function (result) {
+                return result.data;
             })
         }
 
-        function getArtistSpotifyFollowers(artistName) {
-
+        function registerUser(user) {
+            var url = apiUrl;
+            console.log("user.service.client");
+            return $http.post(url, user).then(function (res) {
+                return res.data;
+            });
         }
 
-        function getArtistFacebookLikes(artistName) {
-
+        function unregisterUser(userId) {
+            var url = apiUrl+"/"+userId;
+            return $http.delete(url).then(function (res) {
+                return res.data;
+            });
         }
 
-        function getArtistGoogleTrendData(artistName) {
+        function updateUser(userId, user) {
+            var url = apiUrl+"/"+userId;
+            return $http(url, user);
+        }
 
+        function findUserByUsername(username) {
+            var url = apiUrl+"?username="+username;
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
+        }
+
+        function findUserById(id) {
+            return $http.get(apiUrl+"/"+id).then(function (res) {
+                return res.data;
+            });
+        }
+
+        function findUserByUsernameAndPassword(username, password) {
+            var url = apiUrl+"?username="+username+"&password="+password;
+            return ($http.get(url).then(function (res) {
+                return res.data;
+            }));
         }
     }
 

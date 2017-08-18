@@ -1,0 +1,237 @@
+<nav class="djg-header-footer-standard djg-header-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+        <span>Bandit</span>
+        <div class="pull-right">
+            <a ng-click="model.goToHomepage()">
+                <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+            <a ng-click="model.goToProfile()">
+                <span class="glyphicon glyphicon-user djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-off djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container djg-body-content">
+    <!-- Watch List -->
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+        {{model.user.username}} - {{model.user.type}}
+    </div>
+    <div>
+        <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+            Artist Watch List
+        </div>
+        <table class="table djg-result-table">
+            <tr>
+                <th></th>
+                <th>Artist</th>
+                <th>Date Added</th>
+                <th>Artist Page</th>
+                <th>Remove Artist</th>
+            </tr>
+            <tr ng-repeat="artist in model.watchlist">
+                <th>
+                    <img class="djg-profile-result-image"
+                        src="{{artist.pictureUrl}}">
+                </th>
+                <th>
+                    {{artist.name}}
+                </th>
+                <th>
+                    {{artist.dateAdded | date}}
+                </th>
+                <th>
+                    <a class="btn djg-black-btn"
+                       ng-click="model.goToArtistPage(artist._spotifyId)">
+                        Artist Page
+                    </a>
+                </th>
+                <th>
+                    <a class="btn djg-cancel-btn"
+                       ng-click="model.removeArtistFromWatchlist(artist._spotifyId)">
+                        Remove Artist
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <!-- User Type Specific List -->
+    <div ng-switch="model.user.type" ng-if="model.user.type !== 'Researcher'" class="djg-standard-margin-bottom">
+        <div ng-switch-when="Agent">
+            <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+                Your Artists
+            </div>
+            <table class="table djg-result-table">
+                <tr>
+                    <th><!-- Photo --></th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Artist Page</th>
+                    <th>Remove Artist</th>
+                </tr>
+                <tr ng-repeat="artist in model.specialList">
+                    <th>
+                        <img class="djg-profile-result-image"
+                             src="{{artist.pictureUrl}}">
+                    </th>
+                    <th>
+                        {{artist.name}}
+                    </th>
+                    <th>
+                        {{artist.dateClaimed | date}}
+                    </th>
+                    <th>
+                        <a class="btn djg-black-btn"
+                           ng-click="model.goToArtistPage(artist._spotifyId)">
+                            Artist Page
+                        </a>
+                    </th>
+                    <th>
+                        <a class="btn djg-cancel-btn"
+                           ng-click="model.removeArtistFromSpecialList(artist._spotifyId)">
+                            Remove Artist
+                        </a>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div ng-switch-when="Promoter">
+            <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+                Your Shows
+            </div>
+            <table class="table djg-result-table">
+                <tr>
+                    <th><!-- Photo --></th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Artist Page</th>
+                    <th>Remove Artist</th>
+                </tr>
+                <tr ng-repeat="artist in model.specialList">
+                    <th>
+                        <img class="djg-profile-result-image"
+                             src="{{artist.pictureUrl}}">
+                    </th>
+                    <th>
+                        {{artist.name}}
+                    </th>
+                    <th>
+                        {{artist.showDate | date}}
+                    </th>
+                    <th>
+                        <a class="btn djg-black-btn"
+                           ng-click="model.goToArtistPage(artist._spotifyId)">
+                            Artist Page
+                        </a>
+                    </th>
+                    <th>
+                        <a class="btn djg-cancel-btn"
+                           ng-click="model.removeArtistFromSpecialList(artist._spotifyId)">
+                            Remove Artist
+                        </a>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div ng-switch-when="Venue">
+            <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+                Your Shows
+            </div>
+            <table class="table djg-result-table">
+                <tr>
+                    <th><!-- Photo --></th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Artist Page</th>
+                    <th>Remove Artist</th>
+                </tr>
+                <tr ng-repeat="artist in model.specialList">
+                    <th>
+                        <img class="djg-profile-result-image"
+                             src="{{artist.pictureUrl}}">
+                    </th>
+                    <th>
+                        {{artist.name}}
+                    </th>
+                    <th>
+                        {{artist.showDate | date}}
+                    </th>
+                    <th>
+                        <a class="btn djg-black-btn"
+                           ng-click="model.goToArtistPage(artist._spotifyId)">
+                            Artist Page
+                        </a>
+                    </th>
+                    <th>
+                        <a class="btn djg-cancel-btn"
+                           ng-click="model.removeArtistFromSpecialList(artist._spotifyId)">
+                            Remove Artist
+                        </a>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- <div>
+        <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+            Artist Watch List
+        </div>
+        <table class="table djg-result-table">
+            <tr>
+                <th></th>
+                <th>Artist</th>
+                <th>Date Added</th>
+                <th>Artist Page</th>
+                <th>Remove Artist</th>
+            </tr>
+            <tr ng-repeat="artist in model.watchlist">
+                <th>
+                    <img class="djg-profile-result-image"
+                         src="{{artist.pictureUrl}}">
+                </th>
+                <th>
+                    {{artist.name}}
+                </th>
+                <th>
+                    {{artist.dateAdded | date}}
+                </th>
+                <th>
+                    <a class="btn djg-black-btn"
+                       ng-click="model.goToArtistPage(artist._spotifyId)">
+                        Artist Page
+                    </a>
+                </th>
+                <th>
+                    <a class="btn djg-cancel-btn"
+                       ng-click="model.removeArtistFromWatchlist(artist._spotifyId)">
+                        Remove Artist
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div> -->
+
+    <a class="btn djg-green-btn form-control djg-standard-margin-bottom"
+        role="button"
+        ng-click="model.goToProfileEdit()">
+        Edit Account Credentials
+    </a>
+
+    <a class="btn djg-cancel-btn form-control djg-standard-margin-bottom"
+       role="button"
+       ng-click="model.logout()">
+        Logout
+    </a>
+    <a class="btn djg-cancel-btn form-control"
+       role="button"
+       ng-click="model.unregisterUser()">
+        Unregister
+    </a>
+</div>
+<footer class="djg-header-footer-standard djg-footer-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+    </div>
+</footer>
