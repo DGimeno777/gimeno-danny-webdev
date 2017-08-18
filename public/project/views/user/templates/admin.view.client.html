@@ -1,0 +1,531 @@
+<nav class="djg-header-footer-standard djg-header-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+        <span>Bandit</span>
+        <div class="pull-right">
+            <a ng-click="model.goToHomepage()">
+                <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container container-fluid djg-body-content">
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+        Users
+    </div>
+    <div class="djg-standard-margin-bottom">
+        <table class="table djg-result-table">
+            <tr>
+                <th>_id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Facebook</th>
+                <th>Google</th>
+                <th>Type</th>
+                <th><!-- for update --></th>
+                <th><!-- for delete --></th>
+            </tr>
+            <tr ng-repeat="entry in model.userEntries">
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._id}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.username}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.password}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.name}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="email"
+                           value="{{entry.email}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.facebook}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.google}}"
+                           readonly>
+                </th>
+                <th>
+                    <select>
+                        <option value="{{entry.type}}">{{entry.type}}</option>
+                        <option value="Researcher">Researcher</option>
+                        <option value="Agent">Agent</option>
+                        <option value="Promoter">Promoter</option>
+                        <option value="Venue">Venue</option>
+                    </select>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-yellow-btn">
+                        Update
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-cancel-btn">
+                        Delete
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <select>
+                        <option value="Researcher">Researcher</option>
+                        <option value="Agent">Agent</option>
+                        <option value="Promoter">Promoter</option>
+                        <option value="Venue">Venue</option>
+                    </select>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-green-btn">
+                        Create
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+        Watch List Entries
+    </div>
+    <div class="djg-standard-margin-bottom">
+        <table class="table djg-result-table">
+            <tr>
+                <th>_id</th>
+                <th>_user</th>
+                <th>_spotifyId</th>
+                <th>name</th>
+                <th>pictureUrl</th>
+                <th>dateAdded</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="entry in model.artistEntries">
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._id}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._user}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._spotifyId}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.name}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.pictureUrl}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date"
+                            value="{{entry.dateAdded | date: 'yyyy-MM-dd'}}">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-yellow-btn">
+                        Update
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-cancel-btn">
+                        Delete
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-green-btn">
+                        Create
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+        Promoter Shows
+    </div>
+    <div class="djg-standard-margin-bottom">
+        <table class="table djg-result-table">
+            <tr>
+                <th>_id</th>
+                <th>_user</th>
+                <th>_spotifyId</th>
+                <th>name</th>
+                <th>pictureUrl</th>
+                <th>showDate</th>
+                <th>showLocation</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="entry in model.promoterEntries">
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._id}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._user}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._spotifyId}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.name}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.pictureUrl}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date"
+                           value="{{entry.showDate | date: 'yyyy-MM-dd'}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.showLocation}}">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-yellow-btn">
+                        Update
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-cancel-btn">
+                        Delete
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-green-btn">
+                        Create
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+        Venue Shows
+    </div>
+    <div class="djg-standard-margin-bottom">
+        <table class="table djg-result-table">
+            <tr>
+                <th>_id</th>
+                <th>_user</th>
+                <th>_spotifyId</th>
+                <th>name</th>
+                <th>pictureUrl</th>
+                <th>showDate</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="entry in model.venueEntries">
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._id}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._user}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._spotifyId}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.name}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.pictureUrl}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date"
+                           value="{{entry.showDate | date: 'yyyy-MM-dd'}}">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-yellow-btn">
+                        Update
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-cancel-btn">
+                        Delete
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-green-btn">
+                        Create
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+        Agent
+    </div>
+    <div class="djg-standard-margin-bottom">
+        <table class="table djg-result-table">
+            <tr>
+                <th>_id</th>
+                <th>_user</th>
+                <th>_spotifyId</th>
+                <th>name</th>
+                <th>pictureUrl</th>
+                <th>dateClaimed</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="entry in model.agentEntries">
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._id}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._user}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry._spotifyId}}"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.name}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           value="{{entry.pictureUrl}}">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date"
+                           value="{{entry.dateClaimed | date:'yyyy-MM-dd'}}">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-yellow-btn">
+                        Update
+                    </a>
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-cancel-btn">
+                        Delete
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control"
+                           type="text"
+                           readonly>
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="text">
+                </th>
+                <th>
+                    <input class="form-control"
+                           type="date">
+                </th>
+                <th>
+                    <a ng-click="" class="btn djg-green-btn">
+                        Create
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+<footer class="djg-header-footer-standard djg-footer-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+    </div>
+</footer>
