@@ -2,8 +2,8 @@ module.exports = function (app, querystring, request) {
 
     var client_id = process.env.SPOTIFY_CLIENT_ID; // Your client id
     var client_secret = process.env.SPOTIFY_SECRET_ID; // Your secret
-    var redirect_uri = 'http://localhost:3000/project/callback'; // Your redirect uri
-    //var redirect_uri = 'https://gimeno-danny-webdev.herokuapp.com/project/callback'; // Heroku Ver
+    //var redirect_uri = 'http://localhost:3000/project/callback'; // Your redirect uri
+    var redirect_uri = 'https://gimeno-danny-webdev.herokuapp.com/project/callback'; // Heroku Ver
     /**
      * Generates a random string containing numbers and letters
      * @param  {number} length The length of the string
