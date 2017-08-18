@@ -19,10 +19,32 @@
             "addArtistToWatchlist": addArtistToWatchlist,
             "findUserWatchlist": findUserWatchlist,
             "removeArtistFromWatchlist": removeArtistFromWatchlist,
-
+            "login": login,
+            "logout": logout,
+            "register": register,
+            "checkLoggedIn": checkLoggedIn,
         };
 
         return api;
+
+        function checkLoggedIn() {
+            console.log("user.service.client-checklogin");
+            return $http.get('/api/loggedin').then(function (res) {
+                return res.data;
+            });
+        }
+
+        function register(user) {
+            return $http.post("/api/register", user);
+        }
+
+        function logout(user) {
+            return $http.post("/api/logout");
+        }
+
+        function login(user) {
+            return $http.post("/api/login", user);
+        }
 
         function removeArtistFromWatchlist(userId, artistSpotifyId) {
             var url = apiUrl+"/"+userId+"/watchlist/delete/"+artistSpotifyId;

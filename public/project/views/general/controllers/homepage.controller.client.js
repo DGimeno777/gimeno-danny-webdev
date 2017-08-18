@@ -3,15 +3,13 @@
         .module("GimenoProject")
         .controller("homepageController", homepageController);
 
-    function homepageController($location, $routeParams) {
+    function homepageController(userService, $location, $route, $routeParams) {
         var model = this;
         var access_token = $routeParams["access_token"];
         var refresh_token = $routeParams["refresh_token"];
 
         model.access_token = access_token;
         model.refresh_token = refresh_token;
-
-        model.userId = $routeParams["userId"];
 
         model.searchArtist = searchArtist;
         model.goToLogin = goToLogin;
@@ -20,36 +18,43 @@
         model.goToHomepage = goToHomepage;
         model.logout = logout;
 
+        userService.checkLoggedIn()
+            .then(function (user) {
+                console.log("check login");
+                console.log(user);
+                model.user = user;
+                model.loggedIn = user != "0";
+                if (model.loggedIn) {
+                    model.userId = user._id;
+                }
+            }).then(function () {
+
+        });
+
         function logout() {
-            $location.url("/"+
-                "?access_token="+access_token+
-                "&refresh_token="+refresh_token);
+            userService
+                .logout()
+                .then(function (response) {
+                    $route.reload();
+                });
         }
 
         function searchArtist(artistName) {
             var url = "/results";
-            if (model.userId) {
-                url += "/"+model.userId;
-            }
             $location.url(url+"?artist_name="+artistName+
                 "&access_token="+access_token+
                 "&refresh_token="+refresh_token);
         }
 
         function goToHomepage() {
-            var url = "/";
-            if (model.userId) {
-                url += "homepage/" + model.userId;
-            }
-            console.log(url);
-            $location.url(url +
+            $location.url("/" +
                 "?access_token="+model.access_token+
                 "&refresh_token="+model.refresh_token);
 
         }
 
         function goToProfile() {
-            $location.url("/profile/"+model.userId+
+            $location.url("/profile"+
                 "?access_token="+access_token+
                 "&refresh_token="+refresh_token);
         }

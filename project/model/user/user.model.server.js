@@ -1,7 +1,9 @@
 module.exports = (function () {
     var mongoose = require('mongoose');
+    var bcrypt = require('bcrypt-nodejs');
     var userSchema = require('./user.schema.server');
     var userModel = mongoose.model('userModel', userSchema);
+
 
     // Req
     userModel.createUser = createUser;

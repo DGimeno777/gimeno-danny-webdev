@@ -5,6 +5,7 @@ module.exports = function (app) {
     var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
     var FacebookStrategy = require('passport-facebook').Strategy;
     var mongoose = require("mongoose");
+    var bcrypt = require("bcrypt-nodejs");
 
     var userDbModel = require('../model/user/user.model.server.js')();
     var artistDbModel = require('../model/artist/artist.model.server')();
@@ -18,6 +19,45 @@ module.exports = function (app) {
     app.post("/api/user/:userId/watchlist/add/:artistSpotifyId", addArtistToWatchlist);
     app.delete("/api/user/:userId/watchlist/delete/:artistSpotifyId", removeArtistFromWatchlist);
     app.get("/api/user/:userId/watchlist", getUserWatchlist);
+    app.post("/api/login", passport.authenticate('local'), login);
+    app.post('/api/logout', logout);
+    app.post('/api/register', register);
+    app.get ('/api/loggedin', loggedin);
+
+    function loggedin(req, res) {
+        console.log("user.service.server-checklogin");
+        res.send(req.isAuthenticated() ? req.user : '0');
+    }
+
+    function register (req, res) {
+        var user = req.body;
+        userDbModel
+            .createUser(user)
+            .then(
+                function(user){
+                    if(user){
+                        req.login(user, function(err) {
+                            if(err) {
+                                res.status(400).send(err);
+                            } else {
+                                res.json(user);
+                            }
+                        });
+                    }
+                }
+            );
+    }
+
+
+    function logout(req, res) {
+        req.logOut();
+        res.status(200);
+    }
+
+    function login(req, res) {
+        var user = req.user;
+        res.json(user);
+    }
 
     // FB authentification
     app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));

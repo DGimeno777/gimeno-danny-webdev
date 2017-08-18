@@ -2,7 +2,7 @@
     <div class="djg-title-standard djg-profile-nav-title-text">
         <span>Bandit</span>
         <div class="pull-right">
-            <div ng-hide="model.userId">
+            <div ng-if="!model.userId && model.access_token">
                 <a ng-click="model.goToHomepage()">
                     <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
                 </a>
@@ -15,7 +15,7 @@
                     <span>Register</span>
                 </a>
             </div>
-            <div ng-if="model.userId">
+            <div ng-if="model.userId && model.access_token">
                 <a ng-click="model.goToHomepage()">
                     <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
                 </a>

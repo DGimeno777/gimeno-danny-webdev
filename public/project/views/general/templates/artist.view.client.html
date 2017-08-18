@@ -46,11 +46,34 @@
             dateClaimed: {type: Date, default: Date.now()}
             -->
             <tr>
+                <th>Agent Name</th>
+                <th>Agent Email</th>
+                <th>Date</th>
+            </tr>
+            <tr ng-repeat="entry in model.agentEntries">
+                <th>
+                    {{entry.userName}}
+                </th>
+                <th>
+                    {{entry.email}}
+                </th>
+                <th>
+                    {{entry.date | date}}
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+            Promoters
+        </div>
+        <table class="table djg-result-table">
+            <tr>
                 <th><!-- Photo --></th>
                 <th>Name</th>
 
             </tr>
-            <tr ng-repeat="entry in model.agentEntries">
+            <!--<tr ng-repeat="entry in model.promoterEntries">
                 <th>
                     <img class="djg-profile-result-image"
                          src="{{entry.pictureUrl}}">
@@ -58,7 +81,7 @@
                 <th>
                     {{entry.name}}
                 </th>
-            </tr>
+            </tr>-->
         </table>
     </div>
 </div>

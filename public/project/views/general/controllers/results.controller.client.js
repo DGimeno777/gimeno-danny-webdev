@@ -10,8 +10,6 @@
         model.access_token = accessToken;
         model.refresh_token = $routeParams["refresh_token"];
 
-        model.userId = $routeParams["userId"];
-
         model.checkImageGiven = checkImageGiven;
         model.goToProfile = goToProfile;
         model.goToLogin = goToLogin;
@@ -27,13 +25,15 @@
         model.addArtistToVenueList = addArtistToVenueList;
         model.addArtistToPromoterList = addArtistToPromoterList;
 
-        console.log("test userid")
-        console.log(model.userId);
-        if (model.userId) {
-            userService
-                .findUserById(model.userId)
-                .then(setUser);
-        }
+        userService.checkLoggedIn()
+            .then(function (user) {
+                model.user = user;
+                model.loggedIn = user != "0";
+                if (model.loggedIn) {
+                    model.userId = user._id;
+                }
+            }).then(function () {
+        });
 
         userService
             .searchArtist(artistName, accessToken)
@@ -41,10 +41,6 @@
 
         function setWatchlist(list) {
             model.watchlist = list;
-        }
-
-        function setUser(user) {
-            model.user = user;
         }
 
         function setResults(results) {
@@ -167,27 +163,20 @@
 
         function goToArtistPage(artistSpotifyId) {
             var url = "/profile/artist/"+artistSpotifyId;
-            if (model.userId) {
-                url += "/user/"+model.userId;
-            }
             $location.url(url+
                 "?access_token="+model.access_token+
                 "&refresh_token="+model.refresh_token);
         }
 
         function goToHomepage() {
-            var url = "/";
-            if (model.userId) {
-                url += "homepage/" + model.userId;
-            }
-            console.log(url);
-            $location.url(url +
+            $location.url("/" +
                 "?access_token="+model.access_token+
                 "&refresh_token="+model.refresh_token);
         }
 
         function goToProfile() {
-            $location.url("/profile/"+model.userId+"?artist_name="+artistName+
+            $location.url("/profile"+
+                "?artist_name="+artistName+
                 "&access_token="+model.access_token+
                 "&refresh_token="+model.refresh_token);
         }
@@ -205,9 +194,13 @@
         }
 
         function logout() {
-            $location.url("/"+
-                "?access_token="+model.access_token+
-                "&refresh_token="+model.refresh_token);
+            userService
+                .logout()
+                .then(function (response) {
+                    $location.url("/"+
+                        "?access_token="+model.access_token+
+                        "&refresh_token="+model.refresh_token);
+                });
         }
     }
 })();

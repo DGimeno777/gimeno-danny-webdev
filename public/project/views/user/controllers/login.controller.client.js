@@ -16,14 +16,18 @@
         function login(user) {
 
             userService
-                .findUserByUsernameAndPassword(user.username, user.password)
+                .login(user)
                 .then(login);
 
             function login(user) {
-                $rootScope.currentUser = user;
-                $location.url("homepage/"+user._id+
+                var user = user.data;
+                $location.url("/"+
                     "?access_token="+model.access_token+
                     "&refresh_token="+model.refresh_token);
+                /*$rootScope.currentUser = user;
+                $location.url("homepage/"+user._id+
+                    "?access_token="+model.access_token+
+                    "&refresh_token="+model.refresh_token);*/
             }
         }
 

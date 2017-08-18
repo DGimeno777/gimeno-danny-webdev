@@ -21,7 +21,7 @@
             var url = "/api/agent/artist/"+artistSpotifyId;
             return $http.get(url).then(function (res) {
                 return res.data;
-            })
+            });
         }
 
         function updateAgentArtist(userId, artistSpotifyId, artist) {

@@ -10,10 +10,18 @@
             "findVenueArtistList": findVenueArtistList,
             "removeArtistFromVenueList": removeArtistFromVenueList,
             "updateVenueArtist": updateVenueArtist,
-            "addArtistToVenueList": addArtistToVenueList
+            "addArtistToVenueList": addArtistToVenueList,
+            "findArtistEntries": findArtistEntries
         };
 
         return api;
+
+        function findArtistEntries(artistSpotifyId) {
+            var url = "/api/venue/artist/"+artistSpotifyId;
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
+        }
 
         function updateVenueArtist(userId, artistSpotifyId, artist) {
             var url = "/api/venue/"+userId+"/venuelist/update/"+artistSpotifyId;

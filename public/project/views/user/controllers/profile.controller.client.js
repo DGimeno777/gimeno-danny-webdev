@@ -9,26 +9,31 @@
         model.access_token = $routeParams["access_token"];
         model.refresh_token = $routeParams["refresh_token"];
 
-        model.userId = $routeParams["userId"];
-
-        model.setUser = setUser;
         model.goToHomepage = goToHomepage;
         model.goToProfile = goToProfile;
+        model.goToArtistPage = goToArtistPage;
         model.logout = logout;
         model.unregisterUser = unregisterUser;
         model.removeArtistFromWatchlist = removeArtistFromWatchlist;
         model.removeArtistFromSpecialList = removeArtistFromSpecialList;
 
-
-        userService
-            .findUserById(model.userId)
-            .then(setUser);
+        userService.checkLoggedIn()
+            .then(function (user) {
+                console.log("check login");
+                console.log(user);
+                model.user = user;
+                model.loggedIn = user != "0";
+                if (model.loggedIn) {
+                    model.userId = user._id;
+                    findSpecialList();
+                    userService
+                        .findUserWatchlist(model.userId)
+                        .then(setWatchlist);
+                }
+            }).then(function () {
+        });
 
         console.log("get model user type");
-
-        userService
-            .findUserWatchlist(model.userId)
-            .then(setWatchlist);
 
         function setSpecialList(list) {
             console.log("set special list");
@@ -41,18 +46,18 @@
             model.watchlist = list;
         }
 
+        function goToArtistPage(artistSpotifyId) {
+            var url = "/profile/artist/"+artistSpotifyId;
+            $location.url(url+
+                "?access_token="+model.access_token+
+                "&refresh_token="+model.refresh_token);
+        }
+
         function removeArtistFromWatchlist(artistSpotifyId) {
             userService
                 .removeArtistFromWatchlist(model.userId, artistSpotifyId)
                 .then();
             $route.reload();
-        }
-
-        function setUser(user) {
-            console.log("profile user set");
-            console.log(user);
-            model.user = user;
-            findSpecialList();
         }
 
         function removeArtistFromSpecialList(artistSpotifyId) {
@@ -78,6 +83,7 @@
         }
 
         function findSpecialList() {
+            console.log("find special list");
             var userType = model.user.type;
             if (userType !== "Researcher") {
                 if (userType === "Promoter") {
@@ -99,21 +105,25 @@
         }
 
         function goToHomepage() {
-            $location.url("/homepage/" + model.userId +
+            $location.url("/homepage"+
                 "?access_token="+model.access_token+
                 "&refresh_token="+model.refresh_token);
         }
 
         function goToProfile() {
-            $location.url("/profile/"+model.userId+
+            $location.url("/profile"+
                 "?access_token="+model.access_token+
                 "&refresh_token="+model.refresh_token);
         }
 
         function logout() {
-            $location.url("/"+
-                "?access_token="+model.access_token+
-                "&refresh_token="+model.refresh_token);
+            userService
+                .logout()
+                .then(function (response) {
+                    $location.url("/"+
+                        "?access_token="+model.access_token+
+                        "&refresh_token="+model.refresh_token);
+                });
         }
 
         function unregisterUser() {

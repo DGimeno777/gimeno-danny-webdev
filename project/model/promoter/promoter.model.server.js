@@ -10,8 +10,14 @@ module.exports = (function () {
     promoterModel.removeShowForUser = removeShowForUser;
     promoterModel.removeUserEntries = removeUserEntries;
     promoterModel.updatePromoterArtist = updatePromoterArtist;
+    promoterModel.getArtistEntries = getArtistEntries;
 
     return promoterModel;
+
+    function getArtistEntries() {
+        return promoterModel
+            .find({_spotifyId: artistSpotifyId});
+    }
 
     function updatePromoterArtist(userId, artistSpotifyId, artist) {
         artist._user = userId;

@@ -5,8 +5,21 @@ module.exports = function (app) {
     app.delete("/api/venue/:userId/venuelist/delete/:artistSpotifyId", removeArtistFromVenueList);
     app.get("/api/venue/:userId/venuelist", findVenueArtistList);
     app.post("/api/venue/:userId/venuelist/add/:artistSpotifyId", addArtistToVenueList);
+    app.get("/api/venue/artist/:artistSpotifyId", getAllArtistEntries);
 
     var venueDbModel = require("../model/venue/venue.model.server")();
+
+    function getAllArtistEntries(req, res) {
+        venueDbModel
+            .getAllShowEntriesForArtist(req.params.artistSpotifyId)
+            .then(function (list) {
+                res.json(list);
+            })
+            .catch(function (err) {
+                console.log(err);
+                res.status(err);
+            });
+    }
 
     function addArtistToVenueList(req, res) {
         console.log("agent.service.server");

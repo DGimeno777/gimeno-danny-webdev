@@ -12,7 +12,7 @@
                 controller: "homepageController",
                 controllerAs: "model"
             })
-            .when('/homepage/:userId', {
+            .when('/homepage', {
                 templateUrl: "views/general/templates/homepage.view.client.html",
                 controller: "homepageController",
                 controllerAs: "model"
@@ -27,17 +27,13 @@
                 controller: "registerController",
                 controllerAs: "model"
             })
-            .when('/profile/:userId', {
+            .when('/profile', {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedIn }
             })
             .when('/results', {
-                templateUrl: "views/general/templates/results.view.client.html",
-                controller: "resultsController",
-                controllerAs: "model"
-            })
-            .when('/results/:userId', {
                 templateUrl: "views/general/templates/results.view.client.html",
                 controller: "resultsController",
                 controllerAs: "model"
@@ -47,10 +43,53 @@
                 controller: "artistController",
                 controllerAs: "model"
             })
-            .when('/profile/artist/:artistSpotifyId/user/:userId', {
-                templateUrl: "views/general/templates/artist.view.client.html",
-                controller: "artistController",
-                controllerAs: "model"
-            })
+            .when('/admin', {
+                templateUrl: "views/user/templates/admin.view.client.html",
+                controller: "adminController",
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedIn}
+            });
+
+        function isAdmin(userService, $q, $location) {
+            var deferred = $q.defer();
+
+            userService
+                .checkLoggedIn()
+                .then(function (user) {
+                    if (user === '0') {
+                        deferred.reject();
+                        $location.url('/login');
+                    } else if (user.name === "admin") {
+                        deferred.resolve(user);
+                    } else {
+                        deferred.reject();
+                        $location.url('/');
+                    }
+                });
+
+            return deferred.promise;
+        }
+
+        function checkLoggedIn(userService, $q, $location) {
+            var deferred = $q.defer();
+
+            userService
+                .checkLoggedIn()
+                .then(function (user) {
+                    if (user === '0') {
+                        deferred.reject();
+                        $location.url('/login');
+                    } else {
+                        deferred.resolve(user);
+                    }
+                });
+
+            return deferred.promise;
+        }
+
+        function currentUser($location, userService) {
+            return userService.checkLoggedIn();
+        }
+
     }
 })();

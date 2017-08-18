@@ -30,6 +30,15 @@
         <option value="Venue">Venue</option>
     </select>
     <input class="form-control input djg-standard-margin-bottom"
+            type="text"
+            ng-model="model.user.name"
+            placeholder="agent/promoter/venue name"
+            id="name">
+    <input class="form-control input djg-standard-margin-bottom"
+            type="email"
+            ng-model="model.user.email"
+            placeholder="example@example.com">
+    <input class="form-control input djg-standard-margin-bottom"
            type="password"
            ng-model="model.user.password"
            placeholder="password"

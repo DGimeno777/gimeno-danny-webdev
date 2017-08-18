@@ -10,10 +10,18 @@
             "findPromoterArtistList": findPromoterArtistList,
             "removeArtistFromPromoterList": removeArtistFromPromoterList,
             "updatePromoterArtist": updatePromoterArtist,
-            "addArtistToPromoterList": addArtistToPromoterList
+            "addArtistToPromoterList": addArtistToPromoterList,
+            "findArtistEntries": findArtistEntries
         };
 
         return api;
+
+        function findArtistEntries(artistSpotifyId) {
+            var url = "/api/promoter/artist/"+artistSpotifyId;
+            return $http.get(url).then(function (res) {
+                return res.data;
+            });
+        }
 
         function updatePromoterArtist(userId, artistSpotifyId, artist) {
             var url = "/api/promoter/"+userId+"/promoterlist/update/"+artistSpotifyId;

@@ -5,8 +5,21 @@ module.exports = function (app) {
     app.delete("/api/promoter/:userId/promoterlist/delete/:artistSpotifyId", removeArtistFromPromoterList);
     app.get("/api/promoter/:userId/promoterlist", findPromoterArtistList);
     app.post("/api/promoter/:userId/promoterlist/add/:artistSpotifyId", addArtistToPromoterList);
+    app.get("/api/promoter/artist/:artistSpotifyId", getArtistEntries);
 
     var promoterDbModel = require("../model/promoter/promoter.model.server")();
+
+    function getArtistEntries(req, res) {
+        promoterDbModel
+            .getAllShowEntriesForArtist(req.params.artistSpotifyId)
+            .then(function (list) {
+                res.json(list);
+            })
+            .catch(function (err) {
+                console.log(err);
+                res.status(err);
+            });
+    }
 
     function addArtistToPromoterList(req, res) {
         console.log("agent.service.server");
