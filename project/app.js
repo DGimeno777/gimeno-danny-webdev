@@ -1,6 +1,6 @@
 module.exports = function (app, querystring, request) {
 
-    var connectionString = 'mongodb://127.0.0.1:27017/project2'; // for local
+    var connectionString = 'mongodb://127.0.0.1:27017/project3'; // for local
     if (process.env.MONGODB_URI) { // check if running remotely
         connectionString = process.env.MONGODB_URI; // user yours
     }

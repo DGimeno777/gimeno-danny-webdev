@@ -30,21 +30,76 @@
     </div>
 </nav>
 <div class="container djg-body-content">
-    <div>
+    <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
         Spotify Details
+    </div>
+    <div class="djg-artist-profile">
+        <div class="djg-artist-profile-div">
+            <div class="djg-standard-margin-bottom">
+                <img class="djg-result-image" src="{{model.artist.images[0].url}}">
+            </div>
+        </div>
+        <div class="container djg-artist-profile-div">
+            <div class="djg-standard-margin-bottom">
+                Name: {{model.artist.name}}
+            </div>
+            <div class="djg-standard-margin-bottom">
+                Followers: {{model.artist.followers.total}}
+            </div>
+            <div class="djg-standard-margin-bottom">
+                Popularity: {{model.artist.popularity}}
+            </div>
+            <div class="djg-standard-margin-bottom">
+                Genres:
+                <span ng-repeat="genre in model.artist.genres">
+                    {{genre}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div ng-if="model.userId">
+            <a class="btn djg-green-btn"
+               ng-if="!model.watchListContains"
+               ng-click="model.addArtistToWatchlist(result.id, result.name, result.images[0].url)">
+                Add to Watch List
+            </a>
+            <a class="btn djg-disable-btn"
+               ng-if="model.watchListContains"
+               disabled="true">
+                On your Watch List
+            </a>
+        </div>
+        <div ng-if="model.user.type === 'Agent'">
+            <a class="btn djg-green-btn"
+               ng-if="!model.agentListContains"
+               ng-click="model.addArtistToAgentList(result.id, result.name, result.images[0].url)">
+                Add to Agent List
+            </a>
+            <a class="btn djg-disable-btn"
+               ng-if="model.agentListContains"
+               disabled="true">
+                On your Agent List
+            </a>
+        </div>
+        <div ng-if="model.user.type === 'Promoter'">
+            <a class="btn djg-green-btn"
+               ng-click="model.addArtistToPromoterList(result.id, result.name, result.images[0].url)">
+                Add Artist Show
+            </a>
+        </div>
+        <div ng-if="model.user.type === 'Venue'">
+            <a class="btn djg-green-btn"
+               ng-click="model.addArtistToPromoterList(result.id, result.name, result.images[0].url)">
+                Add Artist Show
+            </a>
+        </div>
     </div>
     <div>
         <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
             Agents
         </div>
         <table class="table djg-result-table">
-            <!--
-            _user: {require: true, type: mongoose.Schema.Types.ObjectId, ref: "userModel"},
-            _spotifyId: {require: true, type: String},
-            name: {type: String, require: true},
-            pictureUrl: {type: String},
-            dateClaimed: {type: Date, default: Date.now()}
-            -->
             <tr>
                 <th>Agent Name</th>
                 <th>Agent Email</th>
@@ -58,7 +113,7 @@
                     {{entry.email}}
                 </th>
                 <th>
-                    {{entry.date | date}}
+                    {{entry.dateClaimed | date}}
                 </th>
             </tr>
         </table>
@@ -69,19 +124,44 @@
         </div>
         <table class="table djg-result-table">
             <tr>
-                <th><!-- Photo --></th>
-                <th>Name</th>
-
+                <th>Promoter Name</th>
+                <th>Promoter Email</th>
+                <th>Show Date</th>
             </tr>
-            <!--<tr ng-repeat="entry in model.promoterEntries">
+            <tr ng-repeat="entry in model.promoterEntries">
                 <th>
-                    <img class="djg-profile-result-image"
-                         src="{{entry.pictureUrl}}">
+                    {{entry.userName}}
                 </th>
                 <th>
-                    {{entry.name}}
+                    {{entry.email}}
                 </th>
-            </tr>-->
+                <th>
+                    {{entry.showDate}}
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
+            Venues
+        </div>
+        <table class="table djg-result-table">
+            <tr>
+                <th>Venue Name</th>
+                <th>Venue Email</th>
+                <th>Show Date</th>
+            </tr>
+            <tr ng-repeat="entry in model.promoterEntries">
+                <th>
+                    {{entry.userName}}
+                </th>
+                <th>
+                    {{entry.email}}
+                </th>
+                <th>
+                    {{entry.showDate}}
+                </th>
+            </tr>
         </table>
     </div>
 </div>

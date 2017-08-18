@@ -142,3 +142,13 @@
     background-color: orange;
     color: white;
 }
+
+.djg-artist-profile {
+    width: 100%;
+}
+
+.djg-artist-profile-div {
+    display: inline-block;
+    width: 45%;
+    height: 100%;
+}

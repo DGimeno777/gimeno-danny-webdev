@@ -24,6 +24,7 @@
         model.addArtistToAgentList = addArtistToAgentList;
         model.addArtistToVenueList = addArtistToVenueList;
         model.addArtistToPromoterList = addArtistToPromoterList;
+        model.searchArtist = searchArtist;
 
         userService.checkLoggedIn()
             .then(function (user) {
@@ -159,6 +160,13 @@
             }
 
             return imageSource;
+        }
+
+        function searchArtist(artistName) {
+            var url = "/results";
+            $location.url(url+"?artist_name="+artistName+
+                "&access_token="+model.access_token+
+                "&refresh_token="+model.refresh_token);
         }
 
         function goToArtistPage(artistSpotifyId) {

@@ -8,4 +8,12 @@
         });
     });
 
+    app.get("/artistId", function (query) {
+        $http.get(baseUrl + '/artists/' + encodeURIComponent(query), {
+            headers: {
+                'Authorization': 'Bearer ' + Auth.getAccessToken()
+            }
+        })
+    })
+
 })();

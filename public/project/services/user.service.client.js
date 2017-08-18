@@ -23,6 +23,7 @@
             "logout": logout,
             "register": register,
             "checkLoggedIn": checkLoggedIn,
+            "searchArtistById": searchArtistById
         };
 
         return api;
@@ -70,6 +71,17 @@
 
         function searchArtist(artistName, accessToken) {
             var url = "https://api.spotify.com/v1/search?q="+artistName+"&type=artist";
+            return $http.get(url, {
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                }
+            }).then(function (result) {
+                return result.data;
+            })
+        }
+
+        function searchArtistById(artistId, accessToken) {
+            var url = "https://api.spotify.com/v1/artists/"+artistId;
             return $http.get(url, {
                 headers: {
                     'Authorization': 'Bearer ' + accessToken
