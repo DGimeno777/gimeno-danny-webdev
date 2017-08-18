@@ -15,12 +15,17 @@ module.exports = (function () {
     userModel.addArtistToWatchlist = addArtistToWatchlist;
     userModel.findUserByFacebookId = findUserByFacebookId;
     userModel.findUserByGoogleId = findUserByGoogleId;
+    userModel.getAllEntries = getAllEntries;
 
     // Custom
     //userModel.addWebsite = addWebsite;
     //userModel.removeWebsiteFromUser = removeWebsiteFromUser;
 
     return userModel;
+
+    function getAllEntries() {
+        return userModel.find();
+    }
 
     function findUserByGoogleId(googleId) {
         return userModel.findOne({'google.id': googleId});

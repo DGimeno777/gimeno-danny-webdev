@@ -22,7 +22,31 @@ module.exports = function (app) {
     app.post("/api/login", passport.authenticate('local'), login);
     app.post('/api/logout', logout);
     app.post('/api/register', register);
-    app.get ('/api/loggedin', loggedin);
+    app.get('/api/loggedin', loggedin);
+    app.get("/api/usersAll", getAllEntries);
+    app.get("/api/artistsAll", getAllArtistEntries);
+
+    function getAllArtistEntries(req, res) {
+        console.log("user.service.server-all");
+        artistDbModel
+            .getAllEntries()
+            .then(
+                function (entries) {
+                    res.json(entries);
+                }
+            )
+    }
+
+    function getAllEntries(req, res) {
+        console.log("user.service.server-all");
+        userDbModel
+            .getAllEntries()
+            .then(
+                function (entries) {
+                    res.json(entries);
+                }
+            )
+    }
 
     function loggedin(req, res) {
         console.log("user.service.server-checklogin");

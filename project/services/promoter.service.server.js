@@ -6,8 +6,21 @@ module.exports = function (app) {
     app.get("/api/promoter/:userId/promoterlist", findPromoterArtistList);
     app.post("/api/promoter/:userId/promoterlist/add/:artistSpotifyId", addArtistToPromoterList);
     app.get("/api/promoter/artist/:artistSpotifyId", getArtistEntries);
-
+    app.get("/api/promoter/all", getAllEntries);
     var promoterDbModel = require("../model/promoter/promoter.model.server")();
+
+
+
+    function getAllEntries(req, res) {
+        console.log("user.service.server-all");
+        promoterDbModel
+            .getAllEntries()
+            .then(
+                function (entries) {
+                    res.json(entries);
+                }
+            )
+    }
 
     function getArtistEntries(req, res) {
         promoterDbModel

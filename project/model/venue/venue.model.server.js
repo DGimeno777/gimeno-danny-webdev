@@ -10,8 +10,13 @@ module.exports = (function () {
     venueModel.removeShowForUser = removeShowForUser;
     venueModel.removeUserEntries = removeUserEntries;
     venueModel.updateVenueArtist = updateVenueArtist;
+    venueModel.getAllEntries = getAllEntries;
 
     return venueModel;
+
+    function getAllEntries() {
+        return venueModel.find();
+    }
 
     function updateVenueArtist(userId, artistSpotifyId, artist) {
         artist._user = userId;

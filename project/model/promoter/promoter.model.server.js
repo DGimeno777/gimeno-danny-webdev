@@ -11,8 +11,13 @@ module.exports = (function () {
     promoterModel.removeUserEntries = removeUserEntries;
     promoterModel.updatePromoterArtist = updatePromoterArtist;
     promoterModel.getArtistEntries = getArtistEntries;
+    promoterModel.getAllEntries = getAllEntries;
 
     return promoterModel;
+
+    function getAllEntries() {
+        return promoterModel.find();
+    }
 
     function getArtistEntries() {
         return promoterModel

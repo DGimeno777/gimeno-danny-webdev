@@ -20,12 +20,12 @@
             .when('/login', {
                 templateUrl: "views/user/templates/login.view.client.html",
                 controller: "loginController",
-                controllerAs: "model"
+                controllerAs: "model",
             })
             .when('/register', {
                 templateUrl: "views/user/templates/register.view.client.html",
                 controller: "registerController",
-                controllerAs: "model"
+                controllerAs: "model",
             })
             .when('/profile', {
                 templateUrl: "views/user/templates/profile.view.client.html",
@@ -47,7 +47,7 @@
                 templateUrl: "views/user/templates/admin.view.client.html",
                 controller: "adminController",
                 controllerAs: "model",
-                resolve: { loggedin: checkLoggedIn}
+                resolve: {currentUser: isAdmin}
             });
 
         function isAdmin(userService, $q, $location) {

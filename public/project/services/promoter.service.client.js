@@ -11,10 +11,18 @@
             "removeArtistFromPromoterList": removeArtistFromPromoterList,
             "updatePromoterArtist": updatePromoterArtist,
             "addArtistToPromoterList": addArtistToPromoterList,
-            "findArtistEntries": findArtistEntries
+            "findArtistEntries": findArtistEntries,
+            "getAllEntries": getAllEntries
         };
 
         return api;
+
+        function getAllEntries() {
+            console.log("user.service.client-all")
+            return $http.get('/api/promoter/all').then(function (res) {
+                return res.data;
+            })
+        }
 
         function findArtistEntries(artistSpotifyId) {
             var url = "/api/promoter/artist/"+artistSpotifyId;

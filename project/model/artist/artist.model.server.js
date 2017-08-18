@@ -9,8 +9,13 @@ module.exports = (function () {
     artistModel.getAllArtistEntries = getAllArtistEntries;
     artistModel.removeArtistForUser = removeArtistForUser;
     artistModel.removeUserEntries = removeUserEntries;
+    artistModel.getAllEntries = getAllEntries;
 
     return artistModel;
+
+    function getAllEntries() {
+        return artistModel.find();
+    }
 
     function removeUserEntries(userId) {
         return artistModel

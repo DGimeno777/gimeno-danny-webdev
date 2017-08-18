@@ -6,8 +6,20 @@ module.exports = function (app) {
     app.get("/api/venue/:userId/venuelist", findVenueArtistList);
     app.post("/api/venue/:userId/venuelist/add/:artistSpotifyId", addArtistToVenueList);
     app.get("/api/venue/artist/:artistSpotifyId", getAllArtistEntries);
+    app.get("/api/venue/all", getAllEntries)
 
     var venueDbModel = require("../model/venue/venue.model.server")();
+
+    function getAllEntries(req, res) {
+        console.log("user.service.server-all");
+        venueDbModel
+            .getAllEntries()
+            .then(
+                function (entries) {
+                    res.json(entries);
+                }
+            )
+    }
 
     function getAllArtistEntries(req, res) {
         venueDbModel

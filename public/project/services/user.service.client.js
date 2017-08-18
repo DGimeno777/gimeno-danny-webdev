@@ -23,10 +23,26 @@
             "logout": logout,
             "register": register,
             "checkLoggedIn": checkLoggedIn,
-            "searchArtistById": searchArtistById
+            "searchArtistById": searchArtistById,
+            "getAllEntries": getAllEntries,
+            "getAllArtistEntries": getAllArtistEntries
         };
 
         return api;
+
+        function getAllArtistEntries() {
+            console.log("user.service.client-all")
+            return $http.get('/api/artistsAll').then(function (res) {
+                return res.data;
+            })
+        }
+
+        function getAllEntries() {
+            console.log("user.service.client-all")
+            return $http.get('/api/usersAll').then(function (res) {
+                return res.data;
+            })
+        }
 
         function checkLoggedIn() {
             console.log("user.service.client-checklogin");

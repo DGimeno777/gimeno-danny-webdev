@@ -17,6 +17,7 @@
         model.goToProfile = goToProfile;
         model.goToHomepage = goToHomepage;
         model.logout = logout;
+        model.goToAdmin = goToAdmin;
 
         userService.checkLoggedIn()
             .then(function (user) {
@@ -44,6 +45,12 @@
             $location.url(url+"?artist_name="+artistName+
                 "&access_token="+access_token+
                 "&refresh_token="+refresh_token);
+        }
+
+        function goToAdmin() {
+            $location.url("/admin"+
+                "?access_token="+model.access_token+
+                "&refresh_token="+model.refresh_token);
         }
 
         function goToHomepage() {

@@ -9,8 +9,13 @@ module.exports = (function () {
     agentModel.updateAgentArtist = updateAgentArtist;
     agentModel.deleteAgentArtistEntry = deleteAgentArtistEntry;
     agentModel.removeUserEntries = removeUserEntries;
+    agentModel.getAllEntries = getAllEntries;
 
     return agentModel;
+
+    function getAllEntries() {
+        return agentModel.find();
+    }
 
     function removeUserEntries(userId) {
         return agentModel

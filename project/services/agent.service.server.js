@@ -6,8 +6,20 @@ module.exports = function (app) {
     app.get("/api/agent/:userId/agentlist", findAgentArtistList);
     app.get("/api/agent/artist/:artistSpotifyId", getArtistEntries);
     app.post("/api/agent/:userId/agentlist/add/:artistSpotifyId", addArtistToAgentList);
+    app.get("/api/agent/all", getAllEntries);
 
     var agentDbModel = require("../model/agent/agent.model.server")();
+
+    function getAllEntries(req, res) {
+        console.log("user.service.server-all");
+        agentDbModel
+            .getAllEntries()
+            .then(
+                function (entries) {
+                    res.json(entries);
+                }
+            )
+    }
 
     function getArtistEntries(req, res) {
         agentDbModel

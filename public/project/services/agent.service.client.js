@@ -11,10 +11,18 @@
             "removeArtistFromAgentList": removeArtistFromAgentList,
             "updateAgentArtist": updateAgentArtist,
             "addArtistToAgentList": addArtistToAgentList,
-            "findArtistEntries": findArtistEntries
+            "findArtistEntries": findArtistEntries,
+            "getAllEntries": getAllEntries
         };
 
         return api;
+
+        function getAllEntries() {
+            console.log("user.service.client-all")
+            return $http.get('/api/agent/all').then(function (res) {
+                return res.data;
+            })
+        }
         
         function findArtistEntries(artistSpotifyId) {
             console.log("agent.service.client-entries");
