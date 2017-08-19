@@ -124,7 +124,9 @@
 
         function updateUser(userId, user) {
             var url = apiUrl+"/"+userId;
-            return $http(url, user);
+            return $http.put(url, user).then(function (res) {
+                return res.data();
+            });
         }
 
         function findUserByUsername(username) {

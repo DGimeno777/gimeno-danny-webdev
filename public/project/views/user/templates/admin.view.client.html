@@ -76,12 +76,12 @@
                     </select>
                 </th>
                 <th>
-                    <a ng-click="" class="btn djg-yellow-btn">
+                    <a ng-click="model.updateUserEntry(entry._id, entry)" class="btn djg-yellow-btn">
                         Update
                     </a>
                 </th>
                 <th>
-                    <a ng-click="" class="btn djg-cancel-btn">
+                    <a ng-click="model.deleteUserEntry(entry._id)" class="btn djg-cancel-btn">
                         Delete
                     </a>
                 </th>
@@ -94,19 +94,23 @@
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                            ng-model="model.newUser.username">
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           ng-model="model.newUser.password">
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           ng-model="model.newUser.name">
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           ng-model="model.newUser.email">
                 </th>
                 <th>
                     <input class="form-control"
@@ -119,15 +123,15 @@
                            readonly>
                 </th>
                 <th>
-                    <select>
-                        <option value="Researcher">Researcher</option>
+                    <select ng-model="model.newUser.type">
+                        <option class="selected: selected" value="Researcher">Researcher</option>
                         <option value="Agent">Agent</option>
                         <option value="Promoter">Promoter</option>
                         <option value="Venue">Venue</option>
                     </select>
                 </th>
                 <th>
-                    <a ng-click="" class="btn djg-green-btn">
+                    <a ng-click="model.createUserEntry(model.newUser)" class="btn djg-green-btn">
                         Create
                     </a>
                 </th>
@@ -172,58 +176,24 @@
                 <th>
                     <input class="form-control"
                            type="text"
-                           value="{{entry.name}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text"
-                           value="{{entry.pictureUrl}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date"
-                            value="{{entry.dateAdded | date: 'yyyy-MM-dd'}}">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-yellow-btn">
-                        Update
-                    </a>
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-cancel-btn">
-                        Delete
-                    </a>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input class="form-control"
-                           type="text"
+                           value="{{entry.name}}"
                            readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           value="{{entry.pictureUrl}}"
+                           readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="date"
+                            value="{{entry.dateAdded | date: 'yyyy-MM-dd'}}"
+                           readonly>
                 </th>
                 <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-green-btn">
-                        Create
+                    <a ng-click="model.deleteArtistEntry()" class="btn djg-cancel-btn">
+                        Delete
                     </a>
                 </th>
             </tr>
@@ -431,7 +401,7 @@
     </div>
 
     <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
-        Agent
+        Agent Artists
     </div>
     <div class="djg-standard-margin-bottom">
         <table class="table djg-result-table">

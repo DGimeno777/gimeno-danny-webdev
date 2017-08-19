@@ -1,0 +1,73 @@
+<nav class="djg-header-footer-standard djg-header-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+        <span>Bandit</span>
+        <div class="pull-right">
+            <a ng-click="model.goToHomepage()">
+                <span class="glyphicon glyphicon-home djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+            <a ng-click="model.goToProfile()">
+                <span class="glyphicon glyphicon-user djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-off djg-glyphicon-header-footer-standard djg-glyphicon-standard-size djg-glyphicon-header-footer-center"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container djg-body-content">
+    <label for="username" class="djg-profile-field-title-text">
+        Username
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="username"
+           ng-model="model.user.username"
+           name="username"
+           id="username"
+           value="{{model.user.username}}"
+            disabled>
+
+    <label for="password" class="djg-profile-field-title-text">
+        Password
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="password"
+           ng-model="model.user.password"
+           name="password"
+           id="password"
+           value="{{model.user.password}}">
+
+    <label for="name" class="djg-profile-field-title-text">
+        Name
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="text"
+           placeholder="name"
+           ng-model="model.user.name"
+           id="name">
+    <label for="email" class="djg-profile-field-title-text">
+        Email
+    </label>
+    <input class="form-control input djg-standard-margin-bottom"
+           type="email"
+           placeholder="email@email.com"
+           ng-model="model.user.email"
+           value="{{model.user.email}}"
+           id="email">
+
+    <a class="btn djg-green-btn form-control djg-standard-margin-bottom"
+       role="button"
+        ng-click="model.updateUser(model.userId, model.user)">
+        Update
+    </a>
+    <a class="btn djg-cancel-btn form-control"
+       role="button"
+       ng-click="model.goToProfile()">
+        Back
+    </a>
+</div>
+<footer class="djg-header-footer-standard djg-footer-standard">
+    <div class="djg-title-standard djg-profile-nav-title-text">
+    </div>
+</footer>

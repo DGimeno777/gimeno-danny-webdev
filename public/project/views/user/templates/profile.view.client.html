@@ -175,49 +175,18 @@
             </table>
         </div>
     </div>
-    <!-- <div>
-        <div class="djg-profile-nav-title-text djg-standard-margin-bottom">
-            Artist Watch List
-        </div>
-        <table class="table djg-result-table">
-            <tr>
-                <th></th>
-                <th>Artist</th>
-                <th>Date Added</th>
-                <th>Artist Page</th>
-                <th>Remove Artist</th>
-            </tr>
-            <tr ng-repeat="artist in model.watchlist">
-                <th>
-                    <img class="djg-profile-result-image"
-                         src="{{artist.pictureUrl}}">
-                </th>
-                <th>
-                    {{artist.name}}
-                </th>
-                <th>
-                    {{artist.dateAdded | date}}
-                </th>
-                <th>
-                    <a class="btn djg-black-btn"
-                       ng-click="model.goToArtistPage(artist._spotifyId)">
-                        Artist Page
-                    </a>
-                </th>
-                <th>
-                    <a class="btn djg-cancel-btn"
-                       ng-click="model.removeArtistFromWatchlist(artist._spotifyId)">
-                        Remove Artist
-                    </a>
-                </th>
-            </tr>
-        </table>
-    </div> -->
 
     <a class="btn djg-green-btn form-control djg-standard-margin-bottom"
         role="button"
         ng-click="model.goToProfileEdit()">
         Edit Account Credentials
+    </a>
+
+    <a class="btn djg-yellow-btn form-control djg-standard-margin-bottom"
+       role="button"
+        ng-click="model.goToAdmin()"
+        ng-if="model.user.username === 'admin'">
+        Website Admin Function
     </a>
 
     <a class="btn djg-cancel-btn form-control djg-standard-margin-bottom"

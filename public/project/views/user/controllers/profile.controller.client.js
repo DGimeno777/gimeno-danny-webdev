@@ -16,6 +16,8 @@
         model.unregisterUser = unregisterUser;
         model.removeArtistFromWatchlist = removeArtistFromWatchlist;
         model.removeArtistFromSpecialList = removeArtistFromSpecialList;
+        model.goToProfileEdit = goToProfileEdit;
+        model.goToAdmin = goToAdmin;
 
         userService.checkLoggedIn()
             .then(function (user) {
@@ -102,6 +104,18 @@
                         .then(setSpecialList);
                 }
             }
+        }
+
+        function goToAdmin() {
+            $location.url("/admin"+
+                "?access_token="+model.access_token+
+                "&refresh_token="+model.refresh_token);
+        }
+
+        function goToProfileEdit() {
+            $location.url("/profile/edit"+
+                "?access_token="+model.access_token+
+                "&refresh_token="+model.refresh_token);
         }
 
         function goToHomepage() {

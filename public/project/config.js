@@ -48,6 +48,12 @@
                 controller: "adminController",
                 controllerAs: "model",
                 resolve: {currentUser: isAdmin}
+            })
+            .when('/profile/edit', {
+                templateUrl: "views/user/templates/profile-edit.view.client.html",
+                controller: "profileEditController",
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedIn}
             });
 
         function isAdmin(userService, $q, $location) {
@@ -59,7 +65,7 @@
                     if (user === '0') {
                         deferred.reject();
                         $location.url('/login');
-                    } else if (user.name === "admin") {
+                    } else if (user.username === "admin") {
                         deferred.resolve(user);
                     } else {
                         deferred.reject();

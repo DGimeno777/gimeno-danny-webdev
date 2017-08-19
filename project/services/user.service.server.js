@@ -75,7 +75,7 @@ module.exports = function (app) {
 
     function logout(req, res) {
         req.logOut();
-        res.status(200);
+        res.send(200);
     }
 
     function login(req, res) {

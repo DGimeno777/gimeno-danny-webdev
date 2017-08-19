@@ -3,7 +3,7 @@
         .module("GimenoProject")
         .controller("adminController", adminController);
 
-    function adminController(userService, agentService, promoterService, venueService, $rootScope, $location, $routeParams) {
+    function adminController(userService, agentService, promoterService, venueService, $rootScope, $route, $location, $routeParams) {
         var model = this;
 
         model.accessToken = $routeParams["access_token"];
@@ -12,10 +12,10 @@
         model.registerUser = registerUser;
         model.goToHomepage = goToHomepage;
         // User
-        //model.updateUserEntry = updateUserEntry;
-        //model.deleteUserEntry = deleteUserEntry;
+        model.updateUserEntry = updateUserEntry;
+        model.deleteUserEntry = deleteUserEntry;
+        model.createUserEntry = createUserEntry;
         // Artist
-        //model.updateArtistEntry = updateArtistEntry;
         //model.deleteArtistEntry = deleteArtistEntry;
         // Promoter
         //model.updatePromoterEntry = updatePromoterEntry;
@@ -59,6 +59,35 @@
                 model.agentEntries = entries;
             });
 
+
+        function updateUserEntry(entryId, entry) {
+            userService
+                .updateUser(entryId, entry)
+                .then(function (back) {
+                    $route.reload();
+                });
+            $route.reload();
+        }
+
+        function deleteUserEntry(entryId) {
+            userService
+                .unregisterUser(entryId)
+                .then(function (back) {
+
+                });
+            $route.reload();
+        }
+
+        function createUserEntry(entry) {
+            console.log("entry");
+            console.log(entry);
+            userService
+                .registerUser(entry)
+                .then(function (back) {
+
+                });
+            $route.reload();
+        }
 
 
         function registerUser(user) {
