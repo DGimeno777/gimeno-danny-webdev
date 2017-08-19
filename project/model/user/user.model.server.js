@@ -4,7 +4,6 @@ module.exports = (function () {
     var userSchema = require('./user.schema.server');
     var userModel = mongoose.model('userModel', userSchema);
 
-    // Req
     userModel.createUser = createUser;
     userModel.findUserById = findUserById;
     userModel.updateUser = updateUser;
@@ -15,10 +14,6 @@ module.exports = (function () {
     userModel.findUserByFacebookId = findUserByFacebookId;
     userModel.findUserByGoogleId = findUserByGoogleId;
     userModel.getAllEntries = getAllEntries;
-
-    // Custom
-    //userModel.addWebsite = addWebsite;
-    //userModel.removeWebsiteFromUser = removeWebsiteFromUser;
 
     return userModel;
 

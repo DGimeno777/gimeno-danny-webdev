@@ -18,7 +18,6 @@
         return api;
 
         function getAllEntries() {
-            console.log("user.service.client-all")
             return $http.get('/api/venue/all').then(function (res) {
                 return res.data;
             })
@@ -53,7 +52,6 @@
         }
 
         function addArtistToVenueList(userId, artistSpotifyId, artist) {
-            console.log("user.service.client");
             var url = "/api/venue/"+userId+"/venuelist/add/"+artistSpotifyId;
             return $http.post(url, artist).then(function (res) {
                 return res.data;

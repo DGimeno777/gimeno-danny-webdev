@@ -30,7 +30,6 @@ module.exports = function (app) {
     app.get("/api/artistsAll", getAllArtistEntries);
 
     function getAllArtistEntries(req, res) {
-        console.log("user.service.server-all");
         artistDbModel
             .getAllEntries()
             .then(
@@ -41,7 +40,6 @@ module.exports = function (app) {
     }
 
     function getAllEntries(req, res) {
-        console.log("user.service.server-all");
         userDbModel
             .getAllEntries()
             .then(
@@ -52,7 +50,6 @@ module.exports = function (app) {
     }
 
     function loggedin(req, res) {
-        console.log("user.service.server-checklogin");
         res.send(req.isAuthenticated() ? req.user : '0');
     }
 
@@ -279,7 +276,6 @@ module.exports = function (app) {
             .findUserByCredentials(username, password)
             .then(
                 function (user) {
-                    console.log(user);
                     if (!user) {
                         return done(null, false);
                     }
@@ -331,8 +327,6 @@ module.exports = function (app) {
         var artistSpotifyId = req.params.artistSpotifyId;
         var userId = req.params.userId;
         var artist = req.body;
-        console.log(artist);
-        console.log("user.service.server");
         artistDbModel
             .addArtistForUser(userId, artistSpotifyId, artist)
             .then(function (artistSpotifyIdBack) {

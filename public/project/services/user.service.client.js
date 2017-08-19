@@ -31,21 +31,18 @@
         return api;
 
         function getAllArtistEntries() {
-            console.log("user.service.client-all")
             return $http.get('/api/artistsAll').then(function (res) {
                 return res.data;
             })
         }
 
         function getAllEntries() {
-            console.log("user.service.client-all")
             return $http.get('/api/usersAll').then(function (res) {
                 return res.data;
             })
         }
 
         function checkLoggedIn() {
-            console.log("user.service.client-checklogin");
             return $http.get('/api/loggedin').then(function (res) {
                 return res.data;
             });
@@ -78,7 +75,6 @@
         }
 
         function addArtistToWatchlist(userId, artistSpotifyId, artist) {
-            console.log("user.service.client");
             var url = apiUrl+"/"+userId+"/watchlist/add/"+artistSpotifyId;
             return $http.post(url, artist).then(function (res) {
                 return res.data;
@@ -109,7 +105,6 @@
 
         function registerUser(user) {
             var url = apiUrl;
-            console.log("user.service.client");
             return $http.post(url, user).then(function (res) {
                 return res.data;
             });

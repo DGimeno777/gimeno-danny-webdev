@@ -11,7 +11,6 @@ module.exports = function (app) {
     var agentDbModel = require("../model/agent/agent.model.server")();
 
     function getAllEntries(req, res) {
-        console.log("user.service.server-all");
         agentDbModel
             .getAllEntries()
             .then(
@@ -34,7 +33,6 @@ module.exports = function (app) {
     }
 
     function addArtistToAgentList(req, res) {
-        console.log("agent.service.server");
         agentDbModel
             .claimArtistForUser(req.params.userId, req.params.artistSpotifyId, req.body)
             .then(function (ret) {
@@ -59,7 +57,6 @@ module.exports = function (app) {
     }
 
     function removeArtistFromAgentList(req, res) {
-        console.log("agent.service.server-remove");
         agentDbModel
             .deleteAgentArtistEntry(req.params.userId, req.params.artistSpotifyId)
             .then(function () {

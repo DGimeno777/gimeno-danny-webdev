@@ -107,8 +107,6 @@
                 .register(user)
                 .then(
                     function(response) {
-                        console.log("reg response");
-                        console.log(response);
                         var user = response.data;
                         $rootScope.currentUser = user;
                         $location.url("/homepage"+

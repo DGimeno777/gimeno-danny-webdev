@@ -18,14 +18,12 @@
         return api;
 
         function getAllEntries() {
-            console.log("user.service.client-all")
             return $http.get('/api/agent/all').then(function (res) {
                 return res.data;
             })
         }
         
         function findArtistEntries(artistSpotifyId) {
-            console.log("agent.service.client-entries");
             var url = "/api/agent/artist/"+artistSpotifyId;
             return $http.get(url).then(function (res) {
                 return res.data;
@@ -54,7 +52,6 @@
         }
 
         function addArtistToAgentList(userId, artistSpotifyId, artist) {
-            console.log("user.service.client");
             var url = "/api/agent/"+userId+"/agentlist/add/"+artistSpotifyId;
             return $http.post(url, artist).then(function (res) {
                 return res.data;

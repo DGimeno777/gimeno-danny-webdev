@@ -11,7 +11,6 @@ module.exports = function (app) {
     var venueDbModel = require("../model/venue/venue.model.server")();
 
     function getAllEntries(req, res) {
-        console.log("user.service.server-all");
         venueDbModel
             .getAllEntries()
             .then(
@@ -34,7 +33,6 @@ module.exports = function (app) {
     }
 
     function addArtistToVenueList(req, res) {
-        console.log("agent.service.server");
         venueDbModel
             .addShowForUser(req.params.userId, req.params.artistSpotifyId, req.body)
             .then(function (ret) {
@@ -59,7 +57,6 @@ module.exports = function (app) {
     }
 
     function removeArtistFromVenueList(req, res) {
-        console.log("agent.service.server-remove");
         venueDbModel
             .removeShowForUser(req.params.userId, req.params.artistSpotifyId)
             .then(function () {

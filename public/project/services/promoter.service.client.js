@@ -18,7 +18,6 @@
         return api;
 
         function getAllEntries() {
-            console.log("user.service.client-all")
             return $http.get('/api/promoter/all').then(function (res) {
                 return res.data;
             })
@@ -46,8 +45,6 @@
         }
 
         function findPromoterArtistList(userId) {
-            console.log("user.service.client-list");
-            console.log(userId);
             var url = "/api/promoter/"+userId+"/promoterlist";
             return $http.get(url).then(function (res) {
                 return res.data;
@@ -55,7 +52,6 @@
         }
 
         function addArtistToPromoterList(userId, artistSpotifyId, artist) {
-            console.log("user.service.client");
             var url = "/api/promoter/"+userId+"/promoterlist/add/"+artistSpotifyId;
             return $http.post(url, artist).then(function (res) {
                 return res.data;

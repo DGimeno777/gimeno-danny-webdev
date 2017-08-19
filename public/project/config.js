@@ -92,10 +92,5 @@
 
             return deferred.promise;
         }
-
-        function currentUser($location, userService) {
-            return userService.checkLoggedIn();
-        }
-
     }
 })();

@@ -22,10 +22,6 @@
         model.addArtistToVenueList = addArtistToVenueList;
         model.addArtistToAgentList = addArtistToAgentList;
         model.addArtistToWatchlist = addArtistToWatchlist;
-        /*model.agentListContainsArtist = agentListContainsArtist;
-         model.artistOnWatchlist = artistOnWatchlist;
-         model.watchlistContainsArtist = watchlistContainsArtist;
-         */
 
         userService
             .checkLoggedIn()
@@ -61,14 +57,10 @@
             .then(setVenueEntries);
 
         function setResults(result) {
-            console.log("result");
-            console.log(result);
             model.artist = result;
-            console.log(model.artist);
         }
 
         function addArtistToPromoterList(artistSpotifyId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -77,13 +69,10 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function addArtistToVenueList(artistSpotifyId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -92,13 +81,10 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function addArtistToAgentList(artistSpotifyId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -107,14 +93,11 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function agentListContainsArtist(artistSpotifyId) {
             if (!model.watchlist) {
-                console.log(model.watchlist);
                 agentService
                     .findAgentArtistList(model.userId)
                     .then(setSpecialList);
@@ -143,7 +126,6 @@
 
         function watchlistContainsArtist(artistSpotifyId) {
             if (!model.watchlist) {
-                console.log(model.watchlist);
                 userService
                     .findUserWatchlist(model.userId)
                     .then(setWatchlist);
@@ -161,7 +143,6 @@
         }
 
         function addArtistToWatchlist(artistId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -170,14 +151,10 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function setVenueEntries(list) {
-            console.log("venue");
-            console.log(list);
             model.venueEntries = list;
             for (var e in model.venueEntries) {
                 var userAssoc = userService
@@ -191,8 +168,6 @@
         }
 
         function setPromoterEntries(list) {
-            console.log("promoter");
-            console.log(list);
             model.promoterEntries = list;
             for (var e in model.promoterEntries) {
                 var userAssoc = userService
@@ -206,15 +181,11 @@
         }
 
         function setAgentEntries(list) {
-            console.log("agent");
-            console.log(list);
             model.agentEntries = list;
             for (var e in model.agentEntries) {
                 var userAssoc = userService
                     .findUserById(model.agentEntries[e]._user)
                     .then(function (res) {
-                        console.log("setAgententries");
-                        console.log(res);
                         return res;
                     });
                 model.agentEntries[e].userName = userAssoc.name;

@@ -21,8 +21,6 @@
 
         userService.checkLoggedIn()
             .then(function (user) {
-                console.log("check login");
-                console.log(user);
                 model.user = user;
                 model.loggedIn = user != "0";
                 if (model.loggedIn) {
@@ -35,16 +33,11 @@
             }).then(function () {
         });
 
-        console.log("get model user type");
-
         function setSpecialList(list) {
-            console.log("set special list");
-            console.log(list);
             model.specialList = list;
         }
 
         function setWatchlist(list) {
-            console.log(list);
             model.watchlist = list;
         }
 

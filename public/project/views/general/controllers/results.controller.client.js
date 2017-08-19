@@ -45,7 +45,6 @@
         }
 
         function setResults(results) {
-            console.log(results.artists.items);
             model.results = results.artists.items;
         }
 
@@ -54,7 +53,6 @@
         }
 
         function addArtistToPromoterList(artistSpotifyId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -63,13 +61,10 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function addArtistToVenueList(artistSpotifyId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -78,13 +73,10 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function addArtistToAgentList(artistSpotifyId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -93,14 +85,11 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 
         function agentListContainsArtist(artistSpotifyId) {
             if (!model.watchlist) {
-                console.log(model.watchlist);
                 agentService
                     .findAgentArtistList(model.userId)
                     .then(setSpecialList);
@@ -125,7 +114,6 @@
 
         function watchlistContainsArtist(artistSpotifyId) {
             if (!model.watchlist) {
-                console.log(model.watchlist);
                 userService
                     .findUserWatchlist(model.userId)
                     .then(setWatchlist);
@@ -139,7 +127,6 @@
         }
 
         function addArtistToWatchlist(artistId, artistName, pictureUrl) {
-            console.log("add");
             model.addArtist = {};
             model.addArtist.name = artistName;
             model.addArtist.pictureUrl = checkImageGiven(pictureUrl);
@@ -148,8 +135,6 @@
                 .then(function (stuff) {
 
                 });
-            //var url = "/results/"+model.userId;
-            console.log("go");
             $route.reload();
         }
 

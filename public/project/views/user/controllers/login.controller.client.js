@@ -24,10 +24,6 @@
                 $location.url("/"+
                     "?access_token="+model.access_token+
                     "&refresh_token="+model.refresh_token);
-                /*$rootScope.currentUser = user;
-                $location.url("homepage/"+user._id+
-                    "?access_token="+model.access_token+
-                    "&refresh_token="+model.refresh_token);*/
             }
         }
 

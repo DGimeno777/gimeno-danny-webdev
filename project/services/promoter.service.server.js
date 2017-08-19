@@ -9,10 +9,7 @@ module.exports = function (app) {
     app.get("/api/promoter/all", getAllEntries);
     var promoterDbModel = require("../model/promoter/promoter.model.server")();
 
-
-
     function getAllEntries(req, res) {
-        console.log("user.service.server-all");
         promoterDbModel
             .getAllEntries()
             .then(
@@ -35,7 +32,6 @@ module.exports = function (app) {
     }
 
     function addArtistToPromoterList(req, res) {
-        console.log("agent.service.server");
         promoterDbModel
             .addShowForUser(req.params.userId, req.params.artistSpotifyId, req.body)
             .then(function (ret) {
@@ -48,7 +44,6 @@ module.exports = function (app) {
     }
 
     function findPromoterArtistList(req, res) {
-        console.log("agent.service.server-list");
         promoterDbModel
             .getAllShowsForUser(req.params.userId)
             .then(function (list) {
@@ -61,7 +56,6 @@ module.exports = function (app) {
     }
 
     function removeArtistFromPromoterList(req, res) {
-        console.log("agent.service.server-remove");
         promoterDbModel
             .removeShowForUser(req.params.userId, req.params.artistSpotifyId)
             .then(function () {
