@@ -16,16 +16,13 @@
         model.deleteUserEntry = deleteUserEntry;
         model.createUserEntry = createUserEntry;
         // Artist
-        //model.deleteArtistEntry = deleteArtistEntry;
+        model.deleteArtistEntry = deleteArtistEntry;
         // Promoter
-        //model.updatePromoterEntry = updatePromoterEntry;
-        //model.deletePromoterEntry = deletePromoterEntry;
+        model.deletePromoterEntry = deletePromoterEntry;
         // Venue
-        //model.updateVenueEntry = updateVenueEntry;
-        //model.deleteVenueEntry = deleteVenueEntry;
+        model.deleteVenueEntry = deleteVenueEntry;
         // Agent
-        //model.updateAgentEntry = updateAgentEntry;
-        //model.deleteAgentEntry = model.deleteAgentEntry;
+        model.deleteAgentEntry = model.deleteAgentEntry;
 
         userService
             .getAllEntries()
@@ -59,22 +56,37 @@
                 model.agentEntries = entries;
             });
 
+        function deleteArtistEntry(userId, spotifyId) {
+            return userService.removeArtistFromWatchlist(userId, spotifyId);
+            $route.reload();
+        }
+
+        function deletePromoterEntry(userId, spotifyId) {
+            promoterService.removeArtistFromPromoterList(userId, spotifyId);
+            $route.reload();
+        }
+
+        function deleteVenueEntry(userId, spotifyId) {
+            venueService.removeArtistFromVenueList(userId, spotifyId);
+            $route.reload();
+        }
+
+        function deleteAgentEntry(userId, spotifyId) {
+            agentService.removeArtistFromAgentList(userId, spotifyId);
+            $route.reload();
+        }
 
         function updateUserEntry(entryId, entry) {
             userService
                 .updateUser(entryId, entry)
-                .then(function (back) {
-                    $route.reload();
-                });
+                .then(function (back) {});
             $route.reload();
         }
 
         function deleteUserEntry(entryId) {
             userService
                 .unregisterUser(entryId)
-                .then(function (back) {
-
-                });
+                .then(function (back) {});
             $route.reload();
         }
 

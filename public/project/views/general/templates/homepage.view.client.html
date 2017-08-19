@@ -37,7 +37,7 @@
         </a>
     </div>
     <div ng-if="model.access_token">
-        <div class="djg-standard-margin-bottom">
+        <div class="djg-center-div djg-standard-margin-bottom">
             <label for="artist" class="djg-profile-field-title-text">
                 Artist Search
             </label>
@@ -47,19 +47,6 @@
                    id="artist">
             <a class="btn djg-black-btn form-control djg-standard-margin-bottom"
                ng-click="model.searchArtist(model.artistName)">
-                <span>Search!</span>
-            </a>
-        </div>
-        <div class="djg-standard-margin-bottom">
-            <label for="agency" class="djg-profile-field-title-text">
-                Agency Search
-            </label>
-            <input class="input form-control djg-standard-margin-bottom"
-                   type="text"
-                   ng-model="model.agency"
-                   id="agency">
-            <a class="btn djg-black-btn form-control djg-standard-margin-bottom"
-               href="#!/agency">
                 <span>Search!</span>
             </a>
         </div>

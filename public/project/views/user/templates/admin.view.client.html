@@ -192,7 +192,7 @@
                            readonly>
                 </th>
                 <th>
-                    <a ng-click="model.deleteArtistEntry()" class="btn djg-cancel-btn">
+                    <a ng-click="model.deleteArtistEntry(entry._user, entry._spotifyId)" class="btn djg-cancel-btn">
                         Delete
                     </a>
                 </th>
@@ -238,67 +238,30 @@
                 <th>
                     <input class="form-control"
                            type="text"
-                           value="{{entry.name}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text"
-                           value="{{entry.pictureUrl}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date"
-                           value="{{entry.showDate | date: 'yyyy-MM-dd'}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text"
-                           value="{{entry.showLocation}}">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-yellow-btn">
-                        Update
-                    </a>
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-cancel-btn">
-                        Delete
-                    </a>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input class="form-control"
-                           type="text"
+                           value="{{entry.name}}"
                            readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           value="{{entry.pictureUrl}}"
+                           readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="date"
+                           value="{{entry.showDate | date: 'yyyy-MM-dd'}}"
+                           readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           value="{{entry.showLocation}}"
+                           readonly>
                 </th>
                 <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-green-btn">
-                        Create
+                    <a ng-click="model.deletePromoterEntry(entry._user, entry._spotifyId)" class="btn djg-cancel-btn">
+                        Delete
                     </a>
                 </th>
             </tr>
@@ -342,58 +305,24 @@
                 <th>
                     <input class="form-control"
                            type="text"
-                           value="{{entry.name}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text"
-                           value="{{entry.pictureUrl}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date"
-                           value="{{entry.showDate | date: 'yyyy-MM-dd'}}">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-yellow-btn">
-                        Update
-                    </a>
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-cancel-btn">
-                        Delete
-                    </a>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input class="form-control"
-                           type="text"
+                           value="{{entry.name}}"
                            readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           value="{{entry.pictureUrl}}"
+                           readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="date"
+                           value="{{entry.showDate | date: 'yyyy-MM-dd'}}"
+                           readonly>
                 </th>
                 <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-green-btn">
-                        Create
+                    <a ng-click="model.deleteVenueEntry(entry._user, entry._spotifyId)" class="btn djg-cancel-btn">
+                        Delete
                     </a>
                 </th>
             </tr>
@@ -437,58 +366,24 @@
                 <th>
                     <input class="form-control"
                            type="text"
-                           value="{{entry.name}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text"
-                           value="{{entry.pictureUrl}}">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date"
-                           value="{{entry.dateClaimed | date:'yyyy-MM-dd'}}">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-yellow-btn">
-                        Update
-                    </a>
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-cancel-btn">
-                        Delete
-                    </a>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input class="form-control"
-                           type="text"
+                           value="{{entry.name}}"
                            readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="text"
+                           value="{{entry.pictureUrl}}"
+                           readonly>
                 </th>
                 <th>
                     <input class="form-control"
-                           type="text">
+                           type="date"
+                           value="{{entry.dateClaimed | date:'yyyy-MM-dd'}}"
+                           readonly>
                 </th>
                 <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="text">
-                </th>
-                <th>
-                    <input class="form-control"
-                           type="date">
-                </th>
-                <th>
-                    <a ng-click="" class="btn djg-green-btn">
-                        Create
+                    <a ng-click="model.deleteAgentEntry(entry._user, entry._spotifyId)" class="btn djg-cancel-btn">
+                        Delete
                     </a>
                 </th>
             </tr>

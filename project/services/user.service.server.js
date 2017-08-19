@@ -9,6 +9,9 @@ module.exports = function (app) {
 
     var userDbModel = require('../model/user/user.model.server.js')();
     var artistDbModel = require('../model/artist/artist.model.server')();
+    var agentDbModel = require('../model/agent/agent.model.server')();
+    var venueDbModel = require('../model/venue/venue.model.server')();
+    var promoterDbModel = require('../model/promoter/promoter.model.server')();
 
     // http handlers
     app.post("/api/user", createUser);
@@ -432,6 +435,14 @@ module.exports = function (app) {
         userDbModel
             .deleteUser(req.params.userId)
             .then(function () {
+                artistDbModel
+                    .removeUserEntries(req.params.userId);
+                agentDbModel
+                    .removeUserEntries(req.params.userId);
+                venueDbModel
+                    .removeUserEntries(req.params.userId);
+                promoterDbModel
+                    .removeUserEntries(req.params.userId);
                 res.status(200);
             })
             .catch(function (err) {
